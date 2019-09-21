@@ -4,14 +4,16 @@ import Seo from "../components/Seo"
 import theme from "../assets/styles/theme"
 import GlobalStyle from "../assets/styles/globalStyle"
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <>
-      <Seo />
-      <GlobalStyle />
-      {children}
-    </>
-  </ThemeProvider>
-)
+const Layout = ({ children }) => {
+  return (
+    <ThemeProvider theme={theme}>
+      <>
+        <Seo />
+        <GlobalStyle />
+        {children}
+      </>
+    </ThemeProvider>
+  )
+}
 
 export default Layout

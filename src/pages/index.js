@@ -23,7 +23,7 @@ const IndexPage = () => {
       <Waypoint
         onEnter={handleWaypointEnter}
         onLeave={handleWaypointLeave}
-        topOffset={100}
+        topOffset={200}
         bottomOffset={-1}
       />
       <Projects />

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import SmoothScroll from "smooth-scroll"
 import "./navigation.css"
+import Scrollspy from "react-scrollspy"
 
 const Nav = styled.nav`
   width: 100%;
@@ -9,10 +10,10 @@ const Nav = styled.nav`
   /* top: ${({ isSticky }) => (isSticky ? "0" : "auto")}; */
   ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")}
   border:1px solid black;
-  height: 100px;
+  height: 200px;
 `
 
-const Ul = styled.ul`
+const StyledScrollspy = styled(Scrollspy)`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -29,16 +30,19 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const navHeight = document.getElementById("navigation").clientHeight
-    new SmoothScroll('a[href*="#"]', { offset: navHeight })
-    console.log(navHeight)
-    this.setState({})
+    new SmoothScroll('a[href*="#"]', { offset: navHeight, speed: 400 })
+    this.setState({ offset: navHeight + 50 })
   }
 
   render() {
     return (
       <Nav id="navigation" isSticky={this.props.isSticky}>
         {this.state ? (
-          <Ul>
+          <StyledScrollspy
+            items={["main", "projects", "about", "contact"]}
+            currentClassName="active"
+            offset={-this.state.offset}
+          >
             <Li>
               <a href="#main">Main</a>
             </Li>
@@ -51,7 +55,7 @@ class Navigation extends React.Component {
             <Li>
               <a href="#contact">Contact</a>
             </Li>
-          </Ul>
+          </StyledScrollspy>
         ) : null}
       </Nav>
     )

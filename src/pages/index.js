@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import Layout from "../components/Layout"
 import Main from "../components/Main"
-import Navigation from "../components/Navigation/Navigation"
 import Projects from "../components/Projects"
 import About from "../components/About"
 import Contact from "../components/Contact"
@@ -20,9 +19,13 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Main />
-      <Waypoint onEnter={handleWaypointEnter} onLeave={handleWaypointLeave} />
-      <Navigation isSticky={isSticky} />
+      <Main isSticky={isSticky} />
+      <Waypoint
+        onEnter={handleWaypointEnter}
+        onLeave={handleWaypointLeave}
+        topOffset={100}
+        bottomOffset={-1}
+      />
       <Projects />
       <About />
       <Contact />

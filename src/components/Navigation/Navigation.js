@@ -6,8 +6,9 @@ import "./navigation.css"
 const Nav = styled.nav`
   width: 100%;
   position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
-  top: ${({ isSticky }) => (isSticky ? "0" : "auto")};
-  background-color: #3333;
+  /* top: ${({ isSticky }) => (isSticky ? "0" : "auto")}; */
+  ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")}
+  background: black;
   height: 100px;
 `
 
@@ -20,6 +21,7 @@ const Ul = styled.ul`
 const Li = styled.li`
   margin: 0;
   padding: 0;
+  color: white;
 `
 
 class Navigation extends React.Component {
@@ -27,6 +29,7 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const navHeight = document.getElementById("navigation").clientHeight
+    console.log(navHeight)
     this.setState({
       links: [
         {
@@ -43,7 +46,7 @@ class Navigation extends React.Component {
           text: "Projects",
           smooth: true,
           spy: true,
-          offset: 0,
+          offset: -navHeight,
           duration: 500,
           activeClass: "active",
         },

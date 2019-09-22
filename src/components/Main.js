@@ -1,14 +1,19 @@
 import React from "react"
 import styled from "styled-components"
+import Navigation from "../components/Navigation/Navigation"
 
 const Section = styled.section`
   width: 100%;
-  height: calc(100vh - 100px);
+  height: 100vh;
   position: relative;
-  border: 10px solid black;
+  background: green;
 `
-const Main = () => {
-  return <Section id="main"></Section>
+const Main = ({ isSticky }) => {
+  return (
+    <Section id="main">
+      <Navigation isSticky={isSticky} />
+    </Section>
+  )
 }
 
 export default Main

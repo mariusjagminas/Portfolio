@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { Link } from "react-scroll"
+import SmoothScroll from "smooth-scroll"
 import "./navigation.css"
 
 const Nav = styled.nav`
@@ -8,7 +8,7 @@ const Nav = styled.nav`
   position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
   /* top: ${({ isSticky }) => (isSticky ? "0" : "auto")}; */
   ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")}
-  background: black;
+  border:1px solid black;
   height: 100px;
 `
 
@@ -29,47 +29,9 @@ class Navigation extends React.Component {
 
   componentDidMount() {
     const navHeight = document.getElementById("navigation").clientHeight
+    new SmoothScroll('a[href*="#"]', { offset: navHeight })
     console.log(navHeight)
-    this.setState({
-      links: [
-        {
-          to: "main",
-          text: "Main",
-          smooth: true,
-          spy: true,
-          offset: 0,
-          duration: 300,
-          activeClass: "active",
-        },
-        {
-          to: "projects",
-          text: "Projects",
-          smooth: true,
-          spy: true,
-          offset: -navHeight,
-          duration: 500,
-          activeClass: "active",
-        },
-        {
-          to: "about",
-          text: "About",
-          smooth: true,
-          spy: true,
-          offset: -navHeight,
-          duration: 500,
-          activeClass: "active",
-        },
-        {
-          to: "contact",
-          text: "Contact",
-          smooth: true,
-          spy: true,
-          offset: -navHeight,
-          duration: 500,
-          activeClass: "active",
-        },
-      ],
-    })
+    this.setState({})
   }
 
   render() {
@@ -77,20 +39,18 @@ class Navigation extends React.Component {
       <Nav id="navigation" isSticky={this.props.isSticky}>
         {this.state ? (
           <Ul>
-            {this.state.links.map(e => (
-              <Li key={e.to}>
-                <Link
-                  to={e.to}
-                  smooth={e.smooth}
-                  spy={e.spy}
-                  offset={e.offset}
-                  duration={e.duration}
-                  activeClass={e.activeClass}
-                >
-                  {e.text}
-                </Link>
-              </Li>
-            ))}
+            <Li>
+              <a href="#main">Main</a>
+            </Li>
+            <Li>
+              <a href="#projects">Projects</a>
+            </Li>
+            <Li>
+              <a href="#about">About</a>
+            </Li>
+            <Li>
+              <a href="#contact">Contact</a>
+            </Li>
           </Ul>
         ) : null}
       </Nav>

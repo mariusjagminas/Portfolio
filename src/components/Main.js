@@ -56,7 +56,7 @@ const P = styled.p`
   }
 `
 
-const Main = ({ isSticky }) => {
+const Main = ({ isSticky, scrollSpyOffset }) => {
   const {
     file: {
       childImageSharp: { fluid },
@@ -76,7 +76,7 @@ const Main = ({ isSticky }) => {
           <P>Front-end JavaScrip Developer. Working with React,Gatsby.</P>
         </Wrapper>
       </Container>
-      <Navigation isSticky={isSticky} />
+      <Navigation isSticky={isSticky} scrollSpyOffset={scrollSpyOffset} />
     </BackgroundImage>
   )
 }

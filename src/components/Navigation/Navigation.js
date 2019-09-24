@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import SmoothScroll from "smooth-scroll"
 import "./navigation.css"
 import Scrollspy from "react-scrollspy"
 import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
@@ -73,59 +72,49 @@ const Text = styled.p`
   }
 `
 
-class Navigation extends React.Component {
-  state = { offset: null }
-
-  componentDidMount() {
-    const navHeight = document.getElementById("navigation").clientHeight
-    new SmoothScroll('a[href*="#"]', { offset: navHeight, speed: 400 })
-    this.setState({ offset: navHeight + 50 })
-  }
-
-  render() {
-    return (
-      <Nav id="navigation" isSticky={this.props.isSticky}>
-        <StyledScrollspy
-          items={["main", "projects", "about", "contact"]}
-          currentClassName="active"
-          offset={-this.state.offset}
-        >
-          <Li>
-            <Link href="#main">
-              <Box className="active__item">
-                <FaHome />
-                <Text className="active__item">Home</Text>
-              </Box>
-            </Link>
-          </Li>
-          <Li>
-            <Link href="#projects">
-              <Box className="active__item">
-                <FaImage />
-                <Text className="active__item">projects</Text>
-              </Box>
-            </Link>
-          </Li>
-          <Li>
-            <Link href="#about">
-              <Box className="active__item">
-                <FaUserTie />
-                <Text className="active__item">about</Text>
-              </Box>
-            </Link>
-          </Li>
-          <Li>
-            <Link href="#contact">
-              <Box className="active__item">
-                <FaEnvelope />
-                <Text className="active__item">contact</Text>
-              </Box>
-            </Link>
-          </Li>
-        </StyledScrollspy>
-      </Nav>
-    )
-  }
+const Navigation = ({ scrollSpyOffset, isSticky }) => {
+  return (
+    <Nav id="navigation" isSticky={isSticky}>
+      <StyledScrollspy
+        items={["main", "projects", "about", "contact"]}
+        currentClassName="active"
+        offset={scrollSpyOffset}
+      >
+        <Li>
+          <Link href="#main">
+            <Box className="active__item">
+              <FaHome />
+              <Text className="active__item">Home</Text>
+            </Box>
+          </Link>
+        </Li>
+        <Li>
+          <Link href="#projects">
+            <Box className="active__item">
+              <FaImage />
+              <Text className="active__item">projects</Text>
+            </Box>
+          </Link>
+        </Li>
+        <Li>
+          <Link href="#about">
+            <Box className="active__item">
+              <FaUserTie />
+              <Text className="active__item">about</Text>
+            </Box>
+          </Link>
+        </Li>
+        <Li>
+          <Link href="#contact">
+            <Box className="active__item">
+              <FaEnvelope />
+              <Text className="active__item">contact</Text>
+            </Box>
+          </Link>
+        </Li>
+      </StyledScrollspy>
+    </Nav>
+  )
 }
 
 export default Navigation

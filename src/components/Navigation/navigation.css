@@ -1,3 +1,9 @@
-.active > a {
+.active > a .active__item {
   color: white;
+  background-color: #e13726;
+  opacity: 1;
+}
+
+.active > a .active__item::before {
+  border-top: 10px solid #e13726;
 }

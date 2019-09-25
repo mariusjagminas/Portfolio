@@ -59,7 +59,7 @@ const Box = styled.div`
     opacity: 0.4;
   }
 `
-
+// TODO: maybe remove transition property in nav component
 const Text = styled.p`
   font-size: 10px;
   text-transform: uppercase;

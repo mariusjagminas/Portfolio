@@ -66,7 +66,10 @@ const Main = ({ isSticky, scrollSpyOffset }) => {
     <BackgroundImage
       id="main"
       Tag="section"
-      fluid={[`linear-gradient(rgba(0, 0, 0, 0.8),rgba(0, 0, 0, 0.8))`, fluid]}
+      fluid={[
+        `linear-gradient(rgba(22, 34, 42,0.8),rgba(22, 34, 42,0.8))`,
+        fluid,
+      ]}
     >
       <Container>
         <Wrapper>

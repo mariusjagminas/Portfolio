@@ -3,8 +3,8 @@ import styled from "styled-components"
 
 const Section = styled.section`
   width: 100%;
-  height: 800px;
-  background: red;
+  min-height: 100vh;
+  background: #283d4b;
 `
 const About = () => <Section id="about"></Section>
 

@@ -48,7 +48,6 @@ const Box = styled.div`
   font-size: 50px;
   padding-top: 30%;
   background-color: none;
-  transition: color 0.1s ease-out, background-color 0.1s ease-out;
   &:before {
     content: "";
     position: absolute;
@@ -58,6 +57,7 @@ const Box = styled.div`
   &:hover {
     opacity: 0.4;
   }
+  transition: opacity 0.2s ease-in-out;
 `
 // TODO: maybe remove transition property in nav component
 const Text = styled.p`

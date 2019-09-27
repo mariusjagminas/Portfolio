@@ -6,11 +6,12 @@ import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
 
 const Nav = styled.nav`
   width: 100%;
-  background: ${({ theme }) => theme.rgba1};
+  background: ${({ isSticky, theme }) =>
+    isSticky ? theme.dark1 : theme.rgba1};
   border-top: 2px solid ${({ theme }) => theme.rgba2};
   border-bottom: 10px solid ${({ theme }) => theme.rgba2};
   position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
-  ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")}
+  ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
 `
 
 const StyledScrollspy = styled(Scrollspy)`
@@ -59,7 +60,6 @@ const Box = styled.div`
   }
   transition: opacity 0.2s ease-in-out;
 `
-// TODO: maybe remove transition property in nav component
 const Text = styled.p`
   font-size: 10px;
   text-transform: uppercase;

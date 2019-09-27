@@ -20,7 +20,7 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     const navHeight = document.getElementById("navigation").offsetHeight
-    new SmoothScroll('a[href*="#"]', { offset: navHeight, speed: 400 })
+    new SmoothScroll('a[href*="#"]', { offset: navHeight - 1, speed: 400 })
 
     this.setState({
       ...this.state,

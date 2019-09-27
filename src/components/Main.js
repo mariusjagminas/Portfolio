@@ -7,6 +7,7 @@ import Background from "gatsby-background-image"
 const BackgroundImage = styled(Background)`
   width: 100%;
   height: 100vh;
+  z-index: 1000;
   position: relative;
 `
 const Container = styled.div`

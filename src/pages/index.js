@@ -44,7 +44,7 @@ class IndexPage extends React.Component {
         />
         <Projects />
         <About />
-        <Contact />
+        <Contact topOffset={this.state.topOffset} />
       </Layout>
     )
   }

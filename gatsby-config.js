@@ -3,6 +3,7 @@ module.exports = {
     title: `Portfolio`,
     description: `front-end javaScript developer`,
     author: `Marius Jagminas`,
+    siteUrl: "https://www.example.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -40,3 +41,4 @@ module.exports = {
     },
   ],
 }
+// TODO: update gatsby-plugin-manifest with correct info in gatsby-config.js

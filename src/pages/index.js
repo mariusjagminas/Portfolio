@@ -5,7 +5,6 @@ import Projects from "../components/Projects"
 import About from "../components/About"
 import Contact from "../components/Contact"
 import { Waypoint } from "react-waypoint"
-import SmoothScroll from "smooth-scroll"
 
 class IndexPage extends React.Component {
   state = { isSticky: false, scrollSpyOffset: null }
@@ -20,7 +19,10 @@ class IndexPage extends React.Component {
 
   componentDidMount() {
     const navHeight = document.getElementById("navigation").offsetHeight
-    new SmoothScroll('a[href*="#"]', { offset: navHeight - 1, speed: 400 })
+    if (typeof window !== `undefined`) {
+      const SmoothScroll = require("smooth-scroll")
+      new SmoothScroll('a[href*="#"]', { offset: navHeight - 1, speed: 400 })
+    }
 
     this.setState({
       ...this.state,

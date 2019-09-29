@@ -21,3 +21,5 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 export default GlobalStyle
+// TODO: change letters spacing, it looks pretty condense on mobile phones
+//FIXME: mobile landscape mode must be fixed

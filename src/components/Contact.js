@@ -69,3 +69,4 @@ const Contact = ({ topOffset }) => (
 
 export default Contact
 // FIXME: update linkedin link and text in footer component
+// TODO: make links bigger or/maybe wider gaps beetween links

@@ -7,12 +7,7 @@ import Contact from "../components/Contact"
 import { Waypoint } from "react-waypoint"
 
 class IndexPage extends React.Component {
-  state = {
-    isSticky: false,
-    scrollSpyOffset: null,
-    isVisible: false,
-    isMobile: true,
-  }
+  state = { isSticky: false, scrollSpyOffset: null }
 
   handleWaypointEnter = () => {
     this.setState({ isSticky: false })
@@ -23,21 +18,17 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
+    const navHeight = document.getElementById("navigation").offsetHeight
     if (typeof window !== `undefined`) {
-      const navHeight = document.getElementById("navigation").offsetHeight
-      new require("smooth-scroll")('a[href*="#"]', {
-        offset: navHeight - 1,
-        speed: 400,
-      })
-
-      this.setState({
-        ...this.state,
-        topOffset: navHeight,
-        scrollSpyOffset: -(navHeight + 50),
-        isVisible: true,
-        isMobile: window.innerWidth < 600 ? true : false, // sets navbar to position fixed 'top' on small screen devices
-      })
+      const SmoothScroll = require("smooth-scroll")
+      new SmoothScroll('a[href*="#"]', { offset: navHeight - 1, speed: 400 })
     }
+
+    this.setState({
+      ...this.state,
+      topOffset: navHeight,
+      scrollSpyOffset: -(navHeight + 50),
+    })
   }
 
   render() {
@@ -46,14 +37,12 @@ class IndexPage extends React.Component {
         <Main
           isSticky={this.state.isSticky}
           scrollSpyOffset={this.state.scrollSpyOffset}
-          isVisible={this.state.isVisible}
-          isMobile={this.state.isMobile}
         />
         <Waypoint
           onEnter={this.handleWaypointEnter}
           onLeave={this.handleWaypointLeave}
           topOffset={this.state.topOffset}
-          bottomOffset={-30}
+          bottomOffset={-1}
         />
         <Projects />
         <About />

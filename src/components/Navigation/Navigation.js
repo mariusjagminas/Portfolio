@@ -6,12 +6,15 @@ import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
 
 const Nav = styled.nav`
   width: 100%;
-  background: ${({ isSticky, theme }) =>
-    isSticky ? theme.dark1 : theme.rgba1};
+  background: ${({ isSticky, theme, isMobile }) =>
+    isSticky || isMobile ? theme.dark1 : theme.rgba1};
   border-top: 2px solid ${({ theme }) => theme.rgba2};
   border-bottom: 10px solid ${({ theme }) => theme.rgba2};
-  position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
-  ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
+  position: ${({ isSticky, isMobile }) =>
+    isSticky || isMobile ? "fixed" : "absolute"};
+  ${({ isSticky, isMobile }) =>
+    isSticky || isMobile ? "top: 0" : "bottom: 0"};
+  opacity: ${({ isVisible }) => (isVisible ? "1" : "0")};
 `
 
 const StyledScrollspy = styled(Scrollspy)`
@@ -72,9 +75,14 @@ const Text = styled.p`
   }
 `
 
-const Navigation = ({ scrollSpyOffset, isSticky }) => {
+const Navigation = ({ scrollSpyOffset, isSticky, isVisible, isMobile }) => {
   return (
-    <Nav id="navigation" isSticky={isSticky}>
+    <Nav
+      id="navigation"
+      isSticky={isSticky}
+      isVisible={isVisible}
+      isMobile={isMobile}
+    >
       <StyledScrollspy
         items={["main", "projects", "about", "contact"]}
         currentClassName="active"

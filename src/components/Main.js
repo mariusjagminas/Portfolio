@@ -85,9 +85,6 @@ const Main = ({ isSticky, scrollSpyOffset }) => {
   )
 }
 
-// FIXME: When a website uploads a unstyled main section appears for a second,
-// then it replaced with styled main section. Maybe problem comming from navHeigt ???
-
 export default Main
 
 export const query = graphql`

@@ -5,13 +5,15 @@ import Scrollspy from "react-scrollspy"
 import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
 
 const Nav = styled.nav`
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   width: 100%;
-  background: ${({ isSticky, theme }) =>
+  background-color: ${({ isSticky, theme }) =>
     isSticky ? theme.dark1 : theme.rgba1};
   border-top: 2px solid ${({ theme }) => theme.rgba2};
   border-bottom: 10px solid ${({ theme }) => theme.rgba2};
   position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
   ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
+  transition: opacity 0.3s ease, background-color 0.3s ease-in-out;
 `
 
 const StyledScrollspy = styled(Scrollspy)`
@@ -72,16 +74,16 @@ const Text = styled.p`
   }
 `
 
-const Navigation = ({ scrollSpyOffset, isSticky }) => {
+const Navigation = ({ scrollSpyOffset, isSticky, isVisible, setHeight }) => {
   return (
-    <Nav id="navigation" isSticky={isSticky}>
+    <Nav id="navigation" isSticky={isSticky} isVisible={isVisible}>
       <StyledScrollspy
         items={["main", "projects", "about", "contact"]}
         currentClassName="active"
         offset={scrollSpyOffset}
       >
         <Li>
-          <Link href="#main">
+          <Link onClick={setHeight} href="#main">
             <Box className="active__item">
               <FaHome />
               <Text className="active__item">Home</Text>

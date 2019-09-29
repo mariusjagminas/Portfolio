@@ -26,6 +26,7 @@
     "react-icons": "^3.7.0",
     "react-scrollspy": "^3.4.0",
     "react-waypoint": "^9.0.2",
+    "serve": "^11.2.0",
     "smooth-scroll": "^16.1.0",
     "styled-components": "^4.4.0"
   },

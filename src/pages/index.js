@@ -7,7 +7,12 @@ import Contact from "../components/Contact"
 import { Waypoint } from "react-waypoint"
 
 class IndexPage extends React.Component {
-  state = { isSticky: false, scrollSpyOffset: null }
+  state = {
+    isSticky: false,
+    scrollSpyOffset: null,
+    isVisible: false,
+    innerWindowHeight: "100vh",
+  }
 
   handleWaypointEnter = () => {
     this.setState({ isSticky: false })
@@ -18,16 +23,24 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    const navHeight = document.getElementById("navigation").offsetHeight
     if (typeof window !== `undefined`) {
+      const navHeight = document.getElementById("navigation").offsetHeight
       const SmoothScroll = require("smooth-scroll")
-      new SmoothScroll('a[href*="#"]', { offset: navHeight - 1, speed: 400 })
+      new SmoothScroll('a[href*="#"]', { offset: navHeight, speed: 400 })
+      this.setState({
+        ...this.state,
+        topOffset: navHeight,
+        scrollSpyOffset: -(navHeight + 50),
+        isVisible: true,
+        innerWindowHeight: `${window.innerHeight}px`,
+      })
     }
+  }
 
+  setHeight = () => {
     this.setState({
       ...this.state,
-      topOffset: navHeight,
-      scrollSpyOffset: -(navHeight + 50),
+      innerWindowHeight: `${window.innerHeight}px`,
     })
   }
 
@@ -37,12 +50,15 @@ class IndexPage extends React.Component {
         <Main
           isSticky={this.state.isSticky}
           scrollSpyOffset={this.state.scrollSpyOffset}
+          isVisible={this.state.isVisible}
+          innerWindowHeight={this.state.innerWindowHeight}
+          setHeight={this.setHeight}
         />
         <Waypoint
           onEnter={this.handleWaypointEnter}
           onLeave={this.handleWaypointLeave}
           topOffset={this.state.topOffset}
-          bottomOffset={-1}
+          bottomOffset={-150}
         />
         <Projects />
         <About />

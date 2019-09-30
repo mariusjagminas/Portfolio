@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { FaEye, FaGithub } from "react-icons/fa"
-import Img from "gatsby-image"
+import Img from "./Img"
 
 const Box = styled.div`
   width: 100%;
@@ -74,10 +74,10 @@ const Text = styled.span`
   margin-left: 10px;
 `
 
-const ProjectBox = ({ title, description, siteUrl, ghUrl, fluid }) => {
+const ProjectBox = ({ title, description, siteUrl, ghUrl, imageName }) => {
   return (
     <Box>
-      <Img fluid={fluid} />
+      <Img imageName={imageName} />
       <Wrapper>
         <Title>{title}</Title>
         <TextWrapper>

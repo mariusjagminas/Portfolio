@@ -2,7 +2,6 @@ import React from "react"
 import styled from "styled-components"
 import ProjectBox from "../components/ProjectBox"
 import { projects } from "../assets/projectsData"
-import { useStaticQuery, graphql } from "gatsby"
 
 const Section = styled.section`
   width: 100%;
@@ -24,16 +23,9 @@ const Section = styled.section`
 `
 
 const Projects = () => {
-  const {
-    allFile: { images },
-  } = useStaticQuery(query)
   return (
     <Section id="projects">
       {projects.map(e => {
-        const isMatchImage = element => {
-          return element.node.file === e.imageName
-        }
-
         return (
           <ProjectBox
             key={e.title}
@@ -41,7 +33,7 @@ const Projects = () => {
             description={e.description}
             siteUrl={e.siteUrl}
             ghUrl={e.ghUrl}
-            fluid={images.find(isMatchImage).node.img.fluid}
+            imageName={e.imageName}
           />
         )
       })}
@@ -51,20 +43,4 @@ const Projects = () => {
 
 export default Projects
 
-export const query = graphql`
-  query Projects {
-    allFile {
-      images: edges {
-        node {
-          file: relativePath
-          img: childImageSharp {
-            fluid(maxWidth: 640) {
-              ...GatsbyImageSharpFluid_withWebp_noBase64
-            }
-          }
-        }
-      }
-    }
-  }
-`
 // TODO: Update images to a higher resolution images, set maxWidt property to graphql query

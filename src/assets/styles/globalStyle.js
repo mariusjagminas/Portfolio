@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     background: #16222a;
-
+    letter-spacing: 0.07rem;
   }
 `
 export default GlobalStyle

@@ -58,7 +58,7 @@ export const query = graphql`
         node {
           file: relativePath
           img: childImageSharp {
-            fluid(maxWidth: 600) {
+            fluid(maxWidth: 640) {
               ...GatsbyImageSharpFluid_withWebp_noBase64
             }
           }

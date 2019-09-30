@@ -1,5 +1,13 @@
 export const projects = [
   {
+    title: "Contemporary literature",
+    description:
+      "JAMstack multi-language website, built with Gatsby.js, Contentful Deployed on Netlify",
+    imageName: "Contemporary-literature.jpg",
+    siteUrl: "https://mariusjagminas.github.io/JavaScript30/",
+    ghUrl: "https://github.com/mariusjagminas/JavaScript30",
+  },
+  {
     title: "JavaScript30",
     description: "A bunch of mini projects built with a plain JavaSript",
     imageName: "java-script-30.jpg",

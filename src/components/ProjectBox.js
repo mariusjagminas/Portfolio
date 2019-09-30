@@ -3,12 +3,11 @@ import styled from "styled-components"
 import { FaEye, FaGithub } from "react-icons/fa"
 import Img from "gatsby-image"
 
-const Wrapper = styled.div`
+const Box = styled.div`
   width: 100%;
   max-width: 337px;
-  padding: 20px 20px;
-  margin: 20px 0;
   background: ${({ theme }) => theme.dark1};
+  border: 7px solid ${({ theme }) => theme.dark1};
   ${({ theme }) => theme.mq.tablet} {
     margin: 20px;
   }
@@ -17,9 +16,15 @@ const Wrapper = styled.div`
   }
 `
 
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 10px 10px;
+`
+
 const Title = styled.h3`
   font-size: 25px;
   margin: 10px 0;
+  padding-bottom: 17px;
   color: ${({ theme }) => theme.rgba4};
   border-bottom: 1px solid ${({ theme }) => theme.rgba4};
 `
@@ -71,23 +76,25 @@ const Text = styled.span`
 
 const ProjectBox = ({ title, description, siteUrl, ghUrl, fluid }) => {
   return (
-    <Wrapper>
+    <Box>
       <Img fluid={fluid} />
-      <Title>{title}</Title>
-      <TextWrapper>
-        <Description>{description} </Description>
-      </TextWrapper>
-      <BtnWrapper>
-        <Link href={siteUrl}>
-          <FaEye />
-          <Text>Live</Text>
-        </Link>
-        <Link href={ghUrl}>
-          <FaGithub />
-          <Text>GitHub</Text>
-        </Link>
-      </BtnWrapper>
-    </Wrapper>
+      <Wrapper>
+        <Title>{title}</Title>
+        <TextWrapper>
+          <Description>{description} </Description>
+        </TextWrapper>
+        <BtnWrapper>
+          <Link href={siteUrl}>
+            <FaEye />
+            <Text>Live</Text>
+          </Link>
+          <Link href={ghUrl}>
+            <FaGithub />
+            <Text>GitHub</Text>
+          </Link>
+        </BtnWrapper>
+      </Wrapper>
+    </Box>
   )
 }
 

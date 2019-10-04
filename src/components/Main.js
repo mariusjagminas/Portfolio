@@ -9,6 +9,7 @@ const BackgroundImage = styled(Background)`
   z-index: 1000;
   position: relative;
   opacity: 0;
+  overflow: hidden;
 `
 const Container = styled.div`
   width: 100%;
@@ -39,6 +40,16 @@ const InnerWrapper = styled.div`
   align-items: center;
   width: 100%;
   padding: 1.2em 2em;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    background-color: ${({ theme }) => theme.color};
+    top: 0;
+    left: 100%;
+    height: 100%;
+    width: 1000px;
+  }
 `
 
 const H1 = styled.h1`
@@ -110,3 +121,4 @@ export const query = graphql`
     }
   }
 `
+// TODO: the right border of the 'name box' is not aligned with the project box's left edge

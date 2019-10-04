@@ -17,21 +17,28 @@ export const projects = [
   {
     title: "Sniezka",
     description:
-      "The beautiful pictures of the mountain Sniezka. Weather and location info pages.",
+      "The beautiful pictures of the mountain Sniezka. The website has a weather and location pages.",
     imageName: "sniezka.jpg",
     siteUrl: "https://mariusjagminas.github.io/Sniezka/",
     ghUrl: "https://github.com/mariusjagminas/Sniezka",
   },
   {
     title: "Top Designs",
-    description: '"Pixel perfect" PSD to HTML exercise.',
+    description: '"Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "top-designs.jpg",
     siteUrl: "https://mariusjagminas.github.io/TopDesigns/",
     ghUrl: "https://github.com/mariusjagminas/TopDesigns",
   },
   {
     title: "TreeHouse",
-    description: 'Pixel perfect" PSD to HTML exercise.',
+    description: 'Pixel perfect" PSD to HTML exercise. Fictional landing page',
+    imageName: "treehouse.jpg",
+    siteUrl: "https://mariusjagminas.github.io/TreeHouse/",
+    ghUrl: "https://github.com/mariusjagminas/TreeHouse",
+  },
+  {
+    title: "TreeHouse",
+    description: 'Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "treehouse.jpg",
     siteUrl: "https://mariusjagminas.github.io/TreeHouse/",
     ghUrl: "https://github.com/mariusjagminas/TreeHouse",

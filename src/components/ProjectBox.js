@@ -5,14 +5,12 @@ import Img from "./Img"
 
 const Box = styled.div`
   width: 100%;
-  max-width: 337px;
+  max-width: 340px;
+  margin: 20px 0;
   background: ${({ theme }) => theme.dark1};
   border: 7px solid ${({ theme }) => theme.dark1};
   ${({ theme }) => theme.mq.tablet} {
     margin: 20px;
-  }
-  ${({ theme }) => theme.mq.desktop} {
-    margin: 40px;
   }
 `
 
@@ -40,12 +38,6 @@ const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
-
-// const Img = styled.div`
-//   width: 100%;
-//   height: 200px;
-//   background-color: orange;
-// `
 
 const Link = styled.a`
   display: block;

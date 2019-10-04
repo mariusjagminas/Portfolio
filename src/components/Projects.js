@@ -8,17 +8,13 @@ const Section = styled.section`
   max-width: 1260px;
   margin: 0 auto;
   min-height: 100vh;
-  padding: 20px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   ${({ theme }) => theme.mq.tablet} {
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
-  }
-  ${({ theme }) => theme.mq.desktop} {
-    justify-content: space-between;
   }
 `
 

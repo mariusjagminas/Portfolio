@@ -60,9 +60,9 @@ const Contact = ({ topOffset, innerWindowHeight }) => (
           </Link>
         </Li>
         <Li>
-          <Link href="https://linkedin">
+          <Link href="https://www.linkedin.com/in/mariusjagminas/">
             <FaLinkedin />
-            <Span>linkedin.com/mariusjagminas</Span>
+            <Span>linkedin.com/in/mariusjagminas</Span>
           </Link>
         </Li>
       </Ul>
@@ -72,4 +72,3 @@ const Contact = ({ topOffset, innerWindowHeight }) => (
 )
 
 export default Contact
-// FIXME: update linkedin link and text in footer component

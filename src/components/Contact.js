@@ -5,8 +5,8 @@ import Footer from "./Footer"
 
 const Section = styled.section`
   width: 100%;
-  height: ${({ topOffset }) =>
-    `calc(100vh - ${topOffset +
+  height: ${({ topOffset, innerWindowHeight }) =>
+    `calc(${innerWindowHeight}px - ${topOffset +
       80}px)`}; /*integer 80 is a footer height in pixels  */
   display: flex;
   justify-content: center;
@@ -39,9 +39,13 @@ const Span = styled.span`
   padding-left: 0.6em;
 `
 
-const Contact = ({ topOffset }) => (
+const Contact = ({ topOffset, innerWindowHeight }) => (
   <>
-    <Section style={{ backgound: "red" }} id="contact" topOffset={topOffset}>
+    <Section
+      id="contact"
+      topOffset={topOffset}
+      innerWindowHeight={innerWindowHeight}
+    >
       <Ul>
         <Li>
           <Link href="mailto:mariusjagminas.it@gmail.com">
@@ -69,4 +73,3 @@ const Contact = ({ topOffset }) => (
 
 export default Contact
 // FIXME: update linkedin link and text in footer component
-// TODO: make links bigger or/maybe wider gaps beetween links

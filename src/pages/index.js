@@ -32,7 +32,7 @@ class IndexPage extends React.Component {
         topOffset: navHeight,
         scrollSpyOffset: -(navHeight + 50),
         isVisible: true,
-        innerWindowHeight: `${window.innerHeight}px`,
+        innerWindowHeight: window.innerHeight,
       })
     }
   }
@@ -40,7 +40,7 @@ class IndexPage extends React.Component {
   setHeight = () => {
     this.setState({
       ...this.state,
-      innerWindowHeight: `${window.innerHeight}px`,
+      innerWindowHeight: window.innerHeight,
     })
   }
 
@@ -62,10 +62,16 @@ class IndexPage extends React.Component {
         />
         <Projects />
         <About />
-        <Contact topOffset={this.state.topOffset} />
+        <Contact
+          topOffset={this.state.topOffset}
+          innerWindowHeight={this.state.innerWindowHeight}
+        />
       </Layout>
     )
   }
 }
 
 export default IndexPage
+// TODO: Scrolling is to slow on mobile read TODO in Navigation component too
+//TODO: Write 100vhOnMobile component and wrap main & contact sections in it, instead of
+// passing a props to those components, and doing calculations in them.

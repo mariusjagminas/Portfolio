@@ -71,7 +71,7 @@ const Main = ({
   } = useStaticQuery(query)
   return (
     <BackgroundImage
-      style={{ height: innerWindowHeight }}
+      style={{ height: `${innerWindowHeight}px` }}
       id="main"
       Tag="section"
       fluid={[

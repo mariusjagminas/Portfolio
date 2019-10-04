@@ -37,7 +37,7 @@ export const projects = [
     ghUrl: "https://github.com/mariusjagminas/TreeHouse",
   },
   {
-    title: "TreeHouse",
+    title: "TreeHousea",
     description: 'Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "treehouse.jpg",
     siteUrl: "https://mariusjagminas.github.io/TreeHouse/",

@@ -15,7 +15,7 @@ const Nav = styled.nav`
   ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
   transition: opacity 0.1s ease, background-color 0.1s ease-in-out;
 `
-
+// TODO: use css styled componets here, instead repeating code, with writing functions
 const StyledScrollspy = styled(Scrollspy)`
   list-style: none;
   padding: 0;
@@ -107,7 +107,7 @@ const Navigation = ({ scrollSpyOffset, isSticky, isVisible, setHeight }) => {
           </Link>
         </Li>
         <Li>
-          <Link href="#contact">
+          <Link href="#contact" onClick={setHeight}>
             <Box className="active__item">
               <FaEnvelope />
               <Text className="active__item">contact</Text>
@@ -120,3 +120,8 @@ const Navigation = ({ scrollSpyOffset, isSticky, isVisible, setHeight }) => {
 }
 
 export default Navigation
+// FIXME Navbar 'jumps' when it changes position to fixed
+// Adding or substracting aditional pixels from offset didn't produce any valuable results.
+// This 'jump' bug is related to the performance.(css recalculation takes a moment)
+// one of the solutions would be to remove smooth-scroll feature for mobile devices,
+// and use it only on desktops. This will mask a bug.

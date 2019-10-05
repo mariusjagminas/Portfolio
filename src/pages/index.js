@@ -11,7 +11,7 @@ class IndexPage extends React.Component {
     isSticky: false,
     scrollSpyOffset: null,
     isVisible: false,
-    innerWindowHeight: "100vh",
+    innerWindowHeight: 100,
   }
 
   handleWaypointEnter = () => {

@@ -60,7 +60,7 @@ const Box = styled.div`
   &:hover {
     opacity: 0.4;
   }
-  transition: opacity 0.2s ease-in-out;
+  transition: opacity 0.3s ease;
 `
 const Text = styled.p`
   font-size: 10px;

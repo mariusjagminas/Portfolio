@@ -13,7 +13,7 @@ const Nav = styled.nav`
   border-bottom: 10px solid ${({ theme }) => theme.rgba2};
   position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
   ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
-  transition: opacity 0.1s ease, background-color 0.1s ease-in-out;
+  transition: opacity 0.3s ease, background-color 0.3s ease-in-out;
 `
 // TODO: use css styled componets here, instead repeating code, with writing functions
 const StyledScrollspy = styled(Scrollspy)`

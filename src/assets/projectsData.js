@@ -24,21 +24,24 @@ export const projects = [
   },
   {
     title: "Top Designs",
-    description: '"Pixel perfect" PSD to HTML exercise. Fictional landing page',
+    description:
+      ' "Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "top-designs.jpg",
     siteUrl: "https://mariusjagminas.github.io/TopDesigns/",
     ghUrl: "https://github.com/mariusjagminas/TopDesigns",
   },
   {
     title: "TreeHouse",
-    description: 'Pixel perfect" PSD to HTML exercise. Fictional landing page',
+    description:
+      ' "Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "treehouse.jpg",
     siteUrl: "https://mariusjagminas.github.io/TreeHouse/",
     ghUrl: "https://github.com/mariusjagminas/TreeHouse",
   },
   {
     title: "TreeHousea",
-    description: 'Pixel perfect" PSD to HTML exercise. Fictional landing page',
+    description:
+      ' "Pixel perfect" PSD to HTML exercise. Fictional landing page',
     imageName: "treehouse.jpg",
     siteUrl: "https://mariusjagminas.github.io/TreeHouse/",
     ghUrl: "https://github.com/mariusjagminas/TreeHouse",

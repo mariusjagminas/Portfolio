@@ -17,9 +17,8 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     background: #16222a;
-    letter-spacing: 0.07rem;
+    letter-spacing: 0.1rem;
   }
 `
 export default GlobalStyle
-// TODO: change letters spacing, it looks pretty condense on mobile phones
 //FIXME: mobile landscape mode must be fixed

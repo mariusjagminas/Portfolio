@@ -15,6 +15,7 @@ const Section = styled.section`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    padding-top: 40px;
   }
 `
 

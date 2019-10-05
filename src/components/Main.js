@@ -8,12 +8,11 @@ const BackgroundImage = styled(Background)`
   width: 100%;
   z-index: 1000;
   position: relative;
-  opacity: 0;
   overflow: hidden;
 `
 const Container = styled.div`
   width: 100%;
-  max-width: 1260px;
+  max-width: 1120px;
   margin: 0 auto;
   padding-top: 44vh;
   height: 100%;
@@ -82,7 +81,7 @@ const Main = ({
   } = useStaticQuery(query)
   return (
     <BackgroundImage
-      style={{ height: `${innerWindowHeight}px` }}
+      style={{ height: innerWindowHeight ? `${innerWindowHeight}px` : "100vh" }}
       id="main"
       Tag="section"
       fluid={[
@@ -121,4 +120,3 @@ export const query = graphql`
     }
   }
 `
-// TODO: the right border of the 'name box' is not aligned with the project box's left edge

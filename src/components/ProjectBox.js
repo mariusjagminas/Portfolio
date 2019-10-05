@@ -59,7 +59,7 @@ const Link = styled.a`
 `
 const TextWrapper = styled.div`
   width: 100%;
-  height: 100px;
+  height: 115px;
 `
 const Text = styled.span`
   text-transform: uppercase;

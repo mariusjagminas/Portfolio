@@ -11,7 +11,7 @@ class IndexPage extends React.Component {
     isSticky: false,
     scrollSpyOffset: null,
     isVisible: false,
-    innerWindowHeight: 100,
+    innerWindowHeight: null,
   }
 
   handleWaypointEnter = () => {
@@ -26,7 +26,10 @@ class IndexPage extends React.Component {
     if (typeof window !== `undefined`) {
       const navHeight = document.getElementById("navigation").offsetHeight
       const SmoothScroll = require("smooth-scroll")
-      new SmoothScroll('a[href*="#"]', { offset: navHeight, speed: 400 })
+      new SmoothScroll('a[href*="#"]', {
+        offset: navHeight,
+        speed: window.innerWidth > 600 ? 400 : 20,
+      })
       this.setState({
         ...this.state,
         topOffset: navHeight,
@@ -57,7 +60,7 @@ class IndexPage extends React.Component {
         <Waypoint
           onEnter={this.handleWaypointEnter}
           onLeave={this.handleWaypointLeave}
-          topOffset={this.state.topOffset}
+          topOffset={this.state.topOffset + 1}
           bottomOffset={-150}
         />
         <Projects />
@@ -72,6 +75,6 @@ class IndexPage extends React.Component {
 }
 
 export default IndexPage
-// TODO: Scrolling is to slow on mobile read TODO in Navigation component too
+
 //TODO: Write 100vhOnMobile component and wrap main & contact sections in it, instead of
 // passing a props to those components, and doing calculations in them.

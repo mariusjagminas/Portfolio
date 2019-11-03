@@ -5,6 +5,7 @@ import Projects from "../components/Projects"
 import About from "../components/About"
 import Contact from "../components/Contact"
 import { Waypoint } from "react-waypoint"
+import UnderConstruction from "../components/UnderConstruction"
 
 class IndexPage extends React.Component {
   state = {
@@ -50,6 +51,7 @@ class IndexPage extends React.Component {
   render() {
     return (
       <Layout>
+        <UnderConstruction />
         <Main
           isSticky={this.state.isSticky}
           scrollSpyOffset={this.state.scrollSpyOffset}

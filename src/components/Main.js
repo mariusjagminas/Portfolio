@@ -94,7 +94,7 @@ const Main = ({
           <InnerWrapper>
             <H1>Marius Jagminas</H1>
           </InnerWrapper>
-          <P>Front-end JavaScript Developer. Working with React, Gatsby.</P>
+          <P>Front End JavaScript Developer</P>
         </Wrapper>
       </Container>
       <Navigation

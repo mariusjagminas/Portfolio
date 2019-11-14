@@ -5,22 +5,25 @@ import Footer from "./Footer"
 
 const Section = styled.section`
   width: 100%;
+  height: ${({ topOffset, innerWindowHeight }) =>
+    `calc(${innerWindowHeight}px - ${topOffset +
+      80}px)`}; /*integer 80 is a footer height in pixels  */
   display: flex;
   justify-content: center;
   align-items: center;
 `
 const Ul = styled.ul`
   list-style: none;
-  margin: 70px 0;
+  margin: 0;
   padding: 0;
-  font-size: 9px; /* for sizing */
+  font-size: 10px; /* for sizing */
   ${({ theme }) => theme.mq.tablet} {
     font-size: 18px;
   }
 `
 
 const Li = styled.li`
-  margin: 4em 0;
+  margin: 2.5em 0;
 `
 
 const Link = styled.a`

@@ -13,6 +13,11 @@ const theme = {
     laptop: "@media(min-width: 1050px)",
     desktop: "@media(min-width: 1255px)",
   },
+  spacing: {
+    "1": "100px", // top and bottom padding of each section for desktop
+    "2": "50px", // top and botom of section for mobile devices
+    "3": "40px", // for spacing between paragraphs
+  },
 }
 
 export default theme

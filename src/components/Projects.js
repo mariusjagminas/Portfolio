@@ -7,7 +7,7 @@ const Section = styled.section`
   width: 100%;
   max-width: 1260px;
   margin: 0 auto;
-  min-height: 100vh;
+  padding: 20px 0 ${({ theme }) => theme.spacing[2]} 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -15,7 +15,9 @@ const Section = styled.section`
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
-    padding-top: 40px;
+  }
+  ${({ theme }) => theme.mq.laptop} {
+    padding: 50px 0 ${({ theme }) => theme.spacing[1]} 0;
   }
 `
 
@@ -39,5 +41,3 @@ const Projects = () => {
 }
 
 export default Projects
-
-// TODO: Update images to a higher resolution images, set maxWidt property to graphql query

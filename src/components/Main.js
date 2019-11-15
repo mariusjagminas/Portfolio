@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   max-width: 300px;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   font-size: 6.3px;
   ${({ theme }) => theme.mq.tablet} {
     font-size: 10px;
@@ -38,7 +38,7 @@ const InnerWrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   width: 100%;
-  padding: 1.2em 2em;
+  padding: 1.2em 4em;
   position: relative;
   &::before {
     position: absolute;

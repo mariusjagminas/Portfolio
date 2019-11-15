@@ -9,6 +9,7 @@ const Box = styled.div`
   margin: 20px 0;
   background: ${({ theme }) => theme.dark1};
   border: 7px solid ${({ theme }) => theme.dark1};
+  border-radius: 5px;
   ${({ theme }) => theme.mq.tablet} {
     margin: 20px;
   }
@@ -44,7 +45,7 @@ const Link = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.rgba4};
   border: 1px solid ${({ theme }) => theme.rgba4};
-  border-radius: 10px;
+  border-radius: 5px;
   width: 110px;
   height: 40px;
   display: flex;

@@ -16,22 +16,29 @@ const Ul = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 10px; /* for sizing */
+  font-size: 9px; /* for sizing */
   ${({ theme }) => theme.mq.tablet} {
-    font-size: 18px;
+    font-size: 12px;
   }
 `
 
 const Li = styled.li`
-  margin: 2.5em 0;
+  margin: 3em 0;
 `
 
 const Link = styled.a`
   text-decoration: none;
   color: ${({ theme }) => theme.rgba4};
   font-size: 3em;
+  background-color: ${({ theme }) => theme.dark1};
+  padding: 0.4em;
+  border-radius: 5px;
   display: flex;
   align-items: center;
+  &:hover {
+    opacity: 0.6;
+  }
+  transition: opacity 0.3s ease;
 `
 
 const Span = styled.span`

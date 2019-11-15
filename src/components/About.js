@@ -42,30 +42,37 @@ const icons = [
 
 const Section = styled.section`
   width: 100%;
+  background-color: ${({ theme }) => theme.rgba1};
+  padding: ${({ theme }) => theme.spacing[2]} 0;
+  ${({ theme }) => theme.mq.laptop} {
+    padding: ${({ theme }) => theme.spacing[1]} 0;
+  }
+`
+
+const MainWrapper = styled.div`
   max-width: 680px;
   margin: 0 auto;
-  min-height: 100vh;
-  background-color: ${({ theme }) => theme.dark};
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 3.6px; /* for sizing */
+  font-size: 3.7px; /* for sizing */
   ${({ theme }) => theme.mq.tablet} {
     font-size: 8px;
   }
 `
 const H3 = styled.h3`
   color: ${({ theme }) => theme.rgba4};
-  font-size: 28px;
+  font-size: 20px;
+  font-weight: 400;
   text-align: center;
-  padding: 20px;
-  margin: 30px 0 0 0;
+  padding: 0 10px;
+  margin: 0;
 `
 
 const Text = styled.p`
   display: block;
-  margin: 0 0 19px 0;
-  padding: 20px;
+  margin: ${({ theme }) => theme.spacing[3]} 0;
+  padding: 0;
   text-align: center;
   color: ${({ theme }) => theme.rgba4};
   font-size: 20px;
@@ -84,7 +91,7 @@ const Ul = styled.ul`
 
 const Li = styled.li`
   margin: 1.6em;
-  background-color: ${({ theme }) => theme.dark1};
+  background-color: ${({ theme }) => theme.dark};
   width: 18em;
   height: 18em;
   display: flex;
@@ -106,21 +113,23 @@ const IconTitle = styled.p`
 `
 const About = () => (
   <Section id="about">
-    <H3>
-      I'm a self-taught (1+ Year) front-end developer, generally working with
-      React, Gatsby.js.
-    </H3>
-    <Text> Technologies that I use in my projects </Text>
-    <Ul>
-      {icons.map(({ icon, name }, i) => (
-        <Li key={i}>
-          <Wrapper>
-            <Icon width={"7em"} icon={icon} />
-            <IconTitle>{name}</IconTitle>
-          </Wrapper>
-        </Li>
-      ))}
-    </Ul>
+    <MainWrapper>
+      <H3>
+        I'm a self-taught (1+ Year) front-end developer, generally working with
+        React, Gatsby.js.
+      </H3>
+      <Text> Technologies that I use in my projects </Text>
+      <Ul>
+        {icons.map(({ icon, name }, i) => (
+          <Li key={i}>
+            <Wrapper>
+              <Icon width={"7em"} icon={icon} />
+              <IconTitle>{name}</IconTitle>
+            </Wrapper>
+          </Li>
+        ))}
+      </Ul>
+    </MainWrapper>
   </Section>
 )
 

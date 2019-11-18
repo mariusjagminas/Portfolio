@@ -6,8 +6,9 @@ import Background from "gatsby-background-image"
 
 const BackgroundImage = styled(Background)`
   width: 100%;
-  z-index: 1000;
+  height: 100vh;
   position: relative;
+  z-index: 1000;
   overflow: hidden;
 `
 const Container = styled.div`
@@ -67,13 +68,7 @@ const P = styled.p`
   }
 `
 
-const Main = ({
-  isSticky,
-  scrollSpyOffset,
-  innerWindowHeight,
-  isVisible,
-  setHeight,
-}) => {
+const Main = () => {
   const {
     file: {
       childImageSharp: { fluid },
@@ -81,7 +76,6 @@ const Main = ({
   } = useStaticQuery(query)
   return (
     <BackgroundImage
-      style={{ height: innerWindowHeight ? `${innerWindowHeight}px` : "100vh" }}
       id="main"
       Tag="section"
       fluid={[
@@ -97,12 +91,7 @@ const Main = ({
           <P>Front End JavaScript Developer</P>
         </Wrapper>
       </Container>
-      <Navigation
-        isSticky={isSticky}
-        scrollSpyOffset={scrollSpyOffset}
-        isVisible={isVisible}
-        setHeight={setHeight}
-      />
+      <Navigation />
     </BackgroundImage>
   )
 }

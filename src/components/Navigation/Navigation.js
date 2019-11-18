@@ -5,17 +5,17 @@ import Scrollspy from "react-scrollspy"
 import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
 
 const Nav = styled.nav`
-  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
   width: 100%;
-  background-color: ${({ isSticky, theme }) =>
-    isSticky ? theme.dark1 : theme.rgba1};
+  opacity: ${({ isVisible }) => (isVisible ? 1 : 0)};
+  background-color: ${({ theme, isFixed }) =>
+    isFixed ? theme.dark1 : theme.rgba1};
   border-top: 2px solid ${({ theme }) => theme.rgba2};
   border-bottom: 10px solid ${({ theme }) => theme.rgba2};
-  position: ${({ isSticky }) => (isSticky ? "fixed" : "absolute")};
-  ${({ isSticky }) => (isSticky ? "top: 0" : "bottom: 0")};
+  position: ${({ isFixed }) => (isFixed ? "fixed" : "absolute")};
+  ${({ isFixed }) => (isFixed ? "top: 0" : "bottom: 0")};
   transition: opacity 0.3s ease, background-color 0.3s ease-in-out;
 `
-// TODO: use css styled componets here, instead repeating code, with writing functions
+
 const StyledScrollspy = styled(Scrollspy)`
   list-style: none;
   padding: 0;
@@ -74,54 +74,98 @@ const Text = styled.p`
   }
 `
 
-const Navigation = ({ scrollSpyOffset, isSticky, isVisible, setHeight }) => {
-  return (
-    <Nav id="navigation" isSticky={isSticky} isVisible={isVisible}>
-      <StyledScrollspy
-        items={["main", "projects", "about", "contact"]}
-        currentClassName="active"
-        offset={scrollSpyOffset}
+class Navigation extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      isFixed: false,
+      isVisible: false,
+      navbarHeight: 0,
+    }
+    this.visibleAreaHeight = 0
+  }
+
+  fixNavbar = () => {
+    const isNavbarAtTheTopOfViewport = this.checkIfNavbarAtTheTop()
+    if (isNavbarAtTheTopOfViewport === this.state.isFixed) return
+    this.setState(prevState => ({ ...prevState, isFixed: !prevState.isFixed }))
+  }
+
+  checkIfNavbarAtTheTop = () => {
+    return this.visibleAreaHeight < window.scrollY
+  }
+
+  initSmoothScroll = navbarHeight => {
+    if (typeof window !== `undefined`) {
+      const SmoothScroll = require("smooth-scroll")
+      new SmoothScroll('a[href*="#"]', {
+        offset: navbarHeight - 1,
+        speed: window.innerWidth > 600 ? 400 : 40,
+      })
+    }
+  }
+
+  componentDidMount() {
+    const sectionHeight = document.querySelector("#main").offsetHeight
+    const navbarHeight = document.querySelector("#navigation").offsetHeight
+    this.visibleAreaHeight = sectionHeight - navbarHeight
+    this.initSmoothScroll(navbarHeight)
+    this.setState({
+      isFixed: this.checkIfNavbarAtTheTop(),
+      isVisible: true,
+      navbarHeight: navbarHeight,
+    })
+    document.addEventListener("scroll", this.fixNavbar)
+  }
+
+  render() {
+    return (
+      <Nav
+        id="navigation"
+        isFixed={this.state.isFixed}
+        isVisible={this.state.isVisible}
       >
-        <Li>
-          <Link onClick={setHeight} href="#main">
-            <Box className="active__item">
-              <FaHome />
-              <Text className="active__item">Home</Text>
-            </Box>
-          </Link>
-        </Li>
-        <Li>
-          <Link href="#projects">
-            <Box className="active__item">
-              <FaImage />
-              <Text className="active__item">projects</Text>
-            </Box>
-          </Link>
-        </Li>
-        <Li>
-          <Link href="#about">
-            <Box className="active__item">
-              <FaUserTie />
-              <Text className="active__item">about</Text>
-            </Box>
-          </Link>
-        </Li>
-        <Li>
-          <Link href="#contact" onClick={setHeight}>
-            <Box className="active__item">
-              <FaEnvelope />
-              <Text className="active__item">contact</Text>
-            </Box>
-          </Link>
-        </Li>
-      </StyledScrollspy>
-    </Nav>
-  )
+        <StyledScrollspy
+          items={["main", "projects", "about", "contact"]}
+          currentClassName="active"
+          offset={-this.state.navbarHeight}
+        >
+          <Li>
+            <Link href="#main">
+              <Box className="active__item">
+                <FaHome />
+                <Text className="active__item">Home</Text>
+              </Box>
+            </Link>
+          </Li>
+          <Li>
+            <Link href="#projects">
+              <Box className="active__item">
+                <FaImage />
+                <Text className="active__item">projects</Text>
+              </Box>
+            </Link>
+          </Li>
+          <Li>
+            <Link href="#about">
+              <Box className="active__item">
+                <FaUserTie />
+                <Text className="active__item">about</Text>
+              </Box>
+            </Link>
+          </Li>
+          <Li>
+            <Link href="#contact">
+              <Box className="active__item">
+                <FaEnvelope />
+                <Text className="active__item">contact</Text>
+              </Box>
+            </Link>
+          </Li>
+        </StyledScrollspy>
+      </Nav>
+    )
+  }
 }
 
 export default Navigation
-// FIXME Navbar 'jumps' when it changes position to fixed
-// Adding or substracting aditional pixels from offset didn't produce any valuable results.
-// This 'jump' bug is related to the performance.(css recalculation takes a moment)
-// one of the solutions would be to remove smooth-scroll feature for mobile devices,
-// and use it only on desktops. This will mask a bug.

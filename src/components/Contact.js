@@ -5,11 +5,12 @@ import Footer from "./Footer"
 
 const Section = styled.section`
   width: 100%;
-  height: calc(100vh - 80px);
+  height: ${({ sectionHeight }) => `${sectionHeight}px`};
   display: flex;
   justify-content: center;
   align-items: center;
 `
+
 const Ul = styled.ul`
   list-style: none;
   margin: 0;
@@ -44,32 +45,48 @@ const Span = styled.span`
   padding-left: 0.6em;
 `
 
-const Contact = () => (
-  <>
-    <Section id="contact">
-      <Ul>
-        <Li>
-          <Link href="mailto:mariusjagminas.it@gmail.com">
-            <FaEnvelope />
-            <Span>mariusjagminas.it@gmail.com</Span>
-          </Link>
-        </Li>
-        <Li>
-          <Link href="https://github.com/mariusjagminas">
-            <FaGithub />
-            <Span>github.com/mariusjagminas</Span>
-          </Link>
-        </Li>
-        <Li>
-          <Link href="https://www.linkedin.com/in/mariusjagminas/">
-            <FaLinkedin />
-            <Span>linkedin.com/in/mariusjagminas</Span>
-          </Link>
-        </Li>
-      </Ul>
-    </Section>
-    <Footer />
-  </>
-)
+class Contact extends React.Component {
+  state = {
+    sectionHeight: 100,
+  }
+
+  componentDidMount() {
+    const navbarHeight = document.querySelector("#navigation").offsetHeight
+    const sectionHeight = window.innerHeight - navbarHeight - 78
+    this.setState({
+      sectionHeight: sectionHeight,
+    })
+  }
+
+  render() {
+    return (
+      <>
+        <Section id="contact" sectionHeight={this.state.sectionHeight}>
+          <Ul>
+            <Li>
+              <Link href="mailto:mariusjagminas.it@gmail.com">
+                <FaEnvelope />
+                <Span>mariusjagminas.it@gmail.com</Span>
+              </Link>
+            </Li>
+            <Li>
+              <Link href="https://github.com/mariusjagminas">
+                <FaGithub />
+                <Span>github.com/mariusjagminas</Span>
+              </Link>
+            </Li>
+            <Li>
+              <Link href="https://www.linkedin.com/in/mariusjagminas/">
+                <FaLinkedin />
+                <Span>linkedin.com/in/mariusjagminas</Span>
+              </Link>
+            </Li>
+          </Ul>
+        </Section>
+        <Footer />
+      </>
+    )
+  }
+}
 
 export default Contact

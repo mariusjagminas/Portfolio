@@ -5,9 +5,7 @@ import Footer from "./Footer"
 
 const Section = styled.section`
   width: 100%;
-  height: ${({ topOffset, innerWindowHeight }) =>
-    `calc(${innerWindowHeight}px - ${topOffset +
-      80}px)`}; /*integer 80 is a footer height in pixels  */
+  height: calc(100vh - 80px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -46,13 +44,9 @@ const Span = styled.span`
   padding-left: 0.6em;
 `
 
-const Contact = ({ topOffset, innerWindowHeight }) => (
+const Contact = () => (
   <>
-    <Section
-      id="contact"
-      topOffset={topOffset}
-      innerWindowHeight={innerWindowHeight}
-    >
+    <Section id="contact">
       <Ul>
         <Li>
           <Link href="mailto:mariusjagminas.it@gmail.com">

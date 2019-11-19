@@ -86,13 +86,15 @@ class Navigation extends React.Component {
   }
 
   fixNavbar = () => {
-    const isNavbarAtTheTopOfViewport = this.checkIfNavbarAtTheTop()
-    if (isNavbarAtTheTopOfViewport === this.state.isFixed) return
+    const isInStateToBeFixed = this.checkIfShouldBeFixed()
+    if (isInStateToBeFixed === this.state.isFixed) return
     this.setState(prevState => ({ ...prevState, isFixed: !prevState.isFixed }))
   }
 
-  checkIfNavbarAtTheTop = () => {
-    return this.visibleAreaHeight < window.scrollY
+  checkIfShouldBeFixed = () => {
+    const isNavbarAtViewportTop = this.visibleAreaHeight < window.scrollY
+    const isMobileDevice = window.innerWidth < 600 || window.innerHeight < 400
+    return isNavbarAtViewportTop || isMobileDevice
   }
 
   initSmoothScroll = navbarHeight => {
@@ -110,12 +112,12 @@ class Navigation extends React.Component {
     const navbarHeight = document.querySelector("#navigation").offsetHeight
     this.visibleAreaHeight = sectionHeight - navbarHeight
     this.initSmoothScroll(navbarHeight)
+    document.addEventListener("scroll", this.fixNavbar)
     this.setState({
-      isFixed: this.checkIfNavbarAtTheTop(),
+      isFixed: this.checkIfShouldBeFixed(),
       isVisible: true,
       navbarHeight: navbarHeight,
     })
-    document.addEventListener("scroll", this.fixNavbar)
   }
 
   render() {

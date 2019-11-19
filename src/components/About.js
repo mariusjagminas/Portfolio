@@ -82,7 +82,7 @@ const About = () => (
   <Section id="about">
     <MainWrapper>
       <H3>
-        I am a self-taught front-end developer, generally working with React,
+        I am a self-taught Front-End Developer, generally working with React,
         Gatsby.js.
       </H3>
       <Text>Technologies that I use in my projects:</Text>

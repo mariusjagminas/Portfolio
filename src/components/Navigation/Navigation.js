@@ -3,6 +3,7 @@ import styled from "styled-components"
 import "./navigation.css"
 import Scrollspy from "react-scrollspy"
 import { FaHome, FaImage, FaEnvelope, FaUserTie } from "react-icons/fa"
+import throttle from "lodash/throttle"
 
 const Nav = styled.nav`
   width: 100%;
@@ -113,7 +114,7 @@ class Navigation extends React.Component {
     const navbarHeight = document.querySelector("#navigation").offsetHeight
     this.visibleAreaHeight = sectionHeight - navbarHeight
     this.initSmoothScroll(navbarHeight)
-    document.addEventListener("scroll", this.fixNavbar)
+    document.addEventListener("scroll", throttle(this.fixNavbar, 20))
     this.setState({
       isFixed: this.checkIfShouldBeFixed(),
       isVisible: true,

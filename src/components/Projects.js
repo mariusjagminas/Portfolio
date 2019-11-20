@@ -11,6 +11,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     flex-direction: row;
     justify-content: center;

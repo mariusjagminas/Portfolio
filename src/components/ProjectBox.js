@@ -10,6 +10,7 @@ const Box = styled.div`
   background: ${({ theme }) => theme.dark1};
   border: 7px solid ${({ theme }) => theme.dark1};
   border-radius: 5px;
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     margin: 20px;
   }
@@ -58,10 +59,12 @@ const Link = styled.a`
   }
   transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 `
+
 const TextWrapper = styled.div`
   width: 100%;
   height: 115px;
 `
+
 const Text = styled.span`
   text-transform: uppercase;
   margin-left: 10px;

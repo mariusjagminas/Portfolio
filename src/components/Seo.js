@@ -86,5 +86,3 @@ SEO.propTypes = {
 }
 
 export default SEO
-
-//FIXME: Remove metatag nofollow, noindex and robotext plugin

@@ -27,6 +27,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   font-size: 6.3px;
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     font-size: 10px;
     max-width: 500px;
@@ -63,6 +64,7 @@ const P = styled.p`
   padding: 0;
   color: ${({ theme }) => theme.white};
   font-size: 16px;
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     font-size: 25px;
   }

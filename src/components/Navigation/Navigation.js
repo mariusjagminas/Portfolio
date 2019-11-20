@@ -68,6 +68,7 @@ const Text = styled.p`
   color: ${({ theme }) => theme.rgba3};
   margin: 0;
   padding: 7px;
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     padding: 12px;
     font-size: 12px;

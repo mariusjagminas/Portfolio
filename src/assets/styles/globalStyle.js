@@ -21,4 +21,3 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 export default GlobalStyle
-//FIXME: mobile landscape mode must be fixed

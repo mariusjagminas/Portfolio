@@ -19,6 +19,7 @@ const Ul = styled.ul`
   margin: 0;
   padding: 0;
   font-size: 9px; /* for sizing */
+  /* Media queries */
   ${({ theme }) => theme.mq.tablet} {
     font-size: 12px;
   }

@@ -130,7 +130,7 @@ class Navigation extends React.Component {
         <StyledScrollspy
           items={["main", "projects", "about", "contact"]}
           currentClassName="active"
-          offset={-this.state.navbarHeight}
+          offset={-this.state.navbarHeight - 10}
         >
           <Li>
             <Link href="#main">

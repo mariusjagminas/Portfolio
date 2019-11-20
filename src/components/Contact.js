@@ -2,13 +2,16 @@ import React from "react"
 import styled from "styled-components"
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa"
 import Footer from "./Footer"
+import debounce from "lodash/debounce"
 
 const Section = styled.section`
+  opacity: ${isVisible => (isVisible ? 1 : 0)};
   width: 100%;
-  height: ${({ sectionHeight }) => `${sectionHeight}px`};
+  min-height: ${({ sectionHeight }) => sectionHeight};
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: opacity 0.3s ease, height 0.2s ease-out;
 `
 
 const Ul = styled.ul`
@@ -46,22 +49,41 @@ const Span = styled.span`
 `
 
 class Contact extends React.Component {
-  state = {
-    sectionHeight: 100,
+  constructor() {
+    super()
+    this.state = {
+      sectionHeight: "100vh",
+      isVisible: false,
+    }
+    this.navbarHeight = 0
+  }
+
+  setSectionHeight = () => {
+    const sectionHeight = `${window.innerHeight - this.navbarHeight - 80}px`
+    this.setState({
+      sectionHeight: sectionHeight,
+      isVisible: false,
+    })
   }
 
   componentDidMount() {
-    const navbarHeight = document.querySelector("#navigation").offsetHeight
-    const sectionHeight = window.innerHeight - navbarHeight - 78
-    this.setState({
-      sectionHeight: sectionHeight,
-    })
+    this.navbarHeight = document.querySelector("#navigation").offsetHeight
+    this.setSectionHeight()
+    window.addEventListener("resize", debounce(this.setSectionHeight, 150))
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("resize", debounce())
   }
 
   render() {
     return (
       <>
-        <Section id="contact" sectionHeight={this.state.sectionHeight}>
+        <Section
+          id="contact"
+          sectionHeight={this.state.sectionHeight}
+          isVisible={this.state.isVisible}
+        >
           <Ul>
             <Li>
               <Link href="mailto:mariusjagminas.it@gmail.com">

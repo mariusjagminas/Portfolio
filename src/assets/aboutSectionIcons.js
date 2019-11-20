@@ -13,7 +13,7 @@ import contentfulIcon from "@iconify/icons-logos/contentful"
 import netlifyIcon from "@iconify/icons-logos/netlify"
 import materialUi from "@iconify/icons-logos/material-ui"
 import es6Icon from "@iconify/icons-logos/es6"
-import reduxIcon from "@iconify/icons-logos/redux"
+import jestIcon from "@iconify/icons-logos/jest"
 
 export const icons = [
   { icon: reactIcon, name: "React" },
@@ -31,5 +31,5 @@ export const icons = [
   { icon: sassIcon, name: "SASS" },
   { icon: npmIcon, name: "NPM" },
   { icon: es6Icon, name: "ES6" },
-  { icon: reduxIcon, name: "Redux" },
+  { icon: jestIcon, name: "Jest" },
 ]

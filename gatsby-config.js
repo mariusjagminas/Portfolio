@@ -32,14 +32,6 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-robots-txt",
-      options: {
-        policy: [{ userAgent: "*", disallow: "/" }],
-        sitemap: null,
-        host: null,
-      },
-    },
-    {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
@@ -47,4 +39,3 @@ module.exports = {
     },
   ],
 }
-// TODO: update gatsby-plugin-manifest with correct info in gatsby-config.js

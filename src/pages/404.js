@@ -4,8 +4,6 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import Background from "gatsby-background-image"
 import { Link } from "gatsby"
-import { InlineIcon } from "@iconify/react"
-import homeIcon from "@iconify/icons-fa-solid/home"
 
 const BackgroundImage = styled(Background)`
   width: 100%;
@@ -79,7 +77,6 @@ const NotFoundPage = () => {
         <Card>
           <H1>404 not found</H1>
           <StyledLink to={"/"}>
-            <InlineIcon icon={homeIcon} />
             <Span>Go to Home page</Span>
           </StyledLink>
         </Card>

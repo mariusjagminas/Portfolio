@@ -1,7 +1,7 @@
 import React from "react"
 import Layout from "../components/Layout"
 import Main from "../components/Main"
-import Projects from "../components/Projects"
+import Projects from "../components/Projects/Projects"
 import About from "../components/About"
 import Contact from "../components/Contact"
 

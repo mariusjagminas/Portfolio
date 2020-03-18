@@ -3,7 +3,7 @@ const projectsData = [
     title: 'Contemporary',
     title2: "Literature",
     titleBg: '#467D8A',
-    image: "contemporary-literature.jpg",
+    image: "literature.jpg",
     items: [
       "JAMstack",
       "Gatsby.js",

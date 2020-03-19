@@ -1,6 +1,7 @@
 const theme = {
   c: {
     bg: "#16222a",
+    bg2: "#2e3141",
     card: "#283d4b",
     text: "#ffffff",
     navBg: "rgba(255, 255, 255, 0.1)",

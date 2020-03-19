@@ -4,158 +4,141 @@ import Navigation from "./Navigation/Navigation"
 import throttle from "lodash/throttle"
 import Particles from './Particles/Particles'
 
-const Section = styled.div`
- width: 100%;
- height: 100vh;
- position: relative;
- `;
-
 const Container = styled.div`
+  width: 100%;
+  height: 100vh;
+  position: relative;
+`;
+
+const Section = styled.div`
   width: 100%;
   height: 100%;
   position: ${({ isFixed }) => isFixed ? "fixed" : "absolute"};
   top: ${({ isFixed, heroHeight }) => isFixed ? `${-heroHeight}px` : "0"};
   z-index: 1000;
-  background: ${({ theme }) => theme.c.bg2}; 
+  background: ${({ theme }) => theme.c.bg}; 
   overflow: hidden;
   `
 
-const Containerin = styled.div`
+const InnerContainer = styled.div`
   position: absolute;
   top: 0;
-  width: 100%;
-  max-width: 1120px;
-  margin: 0 auto;
-  padding-top: 44vh;
+  right: 0;
   height: 100%;
-  display: flex;
-  justify-content: flex-end;
-`
-
-const Wrapper = styled.div`
-  max-width: 300px;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  font-size: 6.3px;
-  /* Media queries */
-  ${({ theme }) => theme.mq.tablet} {
-    font-size: 10px;
-    max-width: 500px;
+  justify-content: center;
+  align-items: flex-end;
+  font-size: 2.4vw;
+  
+  ${({ theme }) => theme.mq.tablet}{
+    font-size: 2vw;
+  }
+  
+  ${({ theme }) => theme.mq.laptop}{
+    font-size: ${({ theme }) => theme.f.rem(16)};
+    align-items: stretch;
+    width: 50%;
   }
 `
 
-const InnerWrapper = styled.div`
-  background-color: ${({ theme }) => theme.color};
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  width: 100%;
-  padding: 1.2em 4em;
-  position: relative;
-  &::before {
-    position: absolute;
-    content: "";
-    background-color: ${({ theme }) => theme.color};
-    top: 0;
-    left: 100%;
-    height: 100%;
-    width: 1000px;
-  }
-`
-
-const H1 = styled.h1`
-  color: ${({ theme }) => theme.white};
-  font-size: 4em;
+const Name = styled.h1`
+  color: ${({ theme }) => theme.c.text};
   text-transform: uppercase;
-  margin: 0;
-`
-
-const P = styled.p`
-  padding: 0;
-  color: ${({ theme }) => theme.white};
-  font-size: 16px;
-  /* Media queries */
-  ${({ theme }) => theme.mq.tablet} {
-    font-size: 25px;
+  font-size: ${({ theme }) => theme.f.em(46)};
+  background-color:${({ theme }) => theme.c.active};
+  padding: 0 ${({ theme }) => theme.f.em(10)};
+  
+  ${({ theme }) => theme.mq.laptop}{
+    font-size: ${({ theme }) => theme.f.em(43)};
+    padding-left: ${({ theme }) => theme.f.em(30)};
   }
 `
 
+const Info = styled.p`
+  padding: 0 ${({ theme }) => theme.f.em(10)};
+  margin: 0;
+  color: ${({ theme }) => theme.c.text};
+  font-size: ${({ theme }) => theme.f.em(40)};
+
+  ${({ theme }) => theme.mq.tablet} {
+    font-size: ${({ theme }) => theme.f.em(25)};
+  }
+`
 
 class Main extends React.Component {
   constructor() {
     super()
-    this.heroHeight = 0
+    this.section = null;
+    this.navbat = null;
 
     this.state = {
+      sectionWidth: 0,
+      sectionHeight: 0,
       isFixed: false,
       navbarHeight: 0,
-      heroHeight: 0,
+      heroHeight: 0
     }
   }
 
   fixNavbar = () => {
-    const isInStateToBeFixed = this.checkIfShouldBeFixed()
-    if (isInStateToBeFixed === this.state.isFixed) return
+
+    if ((this.state.heroHeight < window.scrollY) === this.state.isFixed) return
     this.setState(prevState => ({ ...prevState, isFixed: !prevState.isFixed }))
   }
 
-  checkIfShouldBeFixed = () => {
-    return this.heroHeight < window.scrollY
-  }
-
-  initSmoothScroll = navbarHeight => {
+  initSmoothScroll = (navHeight) => {
     if (typeof window !== `undefined`) {
       const SmoothScroll = require("smooth-scroll")
       new SmoothScroll('a[href*="#"]', {
-        offset: navbarHeight - 1,
+        offset: navHeight - 1,
         speed: window.innerWidth > 600 ? 300 : 40,
       })
     }
   }
 
+  setNewValues = () => {
+    const heroHeight = this.section.offsetHeight - this.navbar.offsetHeight
+    this.initSmoothScroll(this.navbar.offsetHeight)
 
+    this.setState({
+      sectionWidth: this.section.offsetWidth,
+      sectionHeight: this.section.offsetHeight,
+      isFixed: heroHeight < window.scrollY,
+      navbarHeight: this.navbar.offsetHeight,
+      heroHeight: heroHeight
+    })
+  }
 
   componentDidMount() {
-    const sectionHeight = document.querySelector("#main").offsetHeight
-    const navbarHeight = document.querySelector("#navigation").offsetHeight;
-    this.heroHeight = sectionHeight - navbarHeight
-    this.initSmoothScroll(navbarHeight)
-    document.addEventListener("scroll", throttle(this.fixNavbar, 10))
-    this.setState({
-      sectionWidth: window.innerWidth,
-      sectionHeight: sectionHeight,
-      isFixed: this.checkIfShouldBeFixed(),
-      navbarHeight: navbarHeight,
-      heroHeight: this.heroHeight
-    })
-
+    this.section = document.querySelector("#main")
+    this.navbar = document.querySelector("#navigation")
+    document.addEventListener("scroll", throttle(this.fixNavbar, 50))
+    this.setNewValues()
   }
 
   render() {
     return (
-
-      <Section id="main" >
-        <Container
+      <Container id="main" >
+        <Section
           isFixed={this.state.isFixed}
           heroHeight={this.state.heroHeight}
         >
-          <Particles />
-          <Containerin>
-            <Wrapper>
-              <InnerWrapper>
-                <H1>Marius Jagminas</H1>
-              </InnerWrapper>
-              <P>Front End JavaScript Developer</P>
-            </Wrapper>
-          </Containerin>
           <Navigation navbarHeight={this.state.navbarHeight} />
-        </Container>
-      </Section >
+          <Particles
+            width={this.state.sectionWidth}
+            height={this.state.sectionHeight}
+          />
+          <InnerContainer>
+            <Name>Marius Jagminas</Name>
+            <Info>JavaScript Developer</Info>
+          </InnerContainer>
+        </Section>
+      </Container >
     )
   }
 }
 
 
 export default Main
-

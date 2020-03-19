@@ -2,12 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import Navigation from "./Navigation"
 import throttle from "lodash/throttle"
+import Particles from './Particles'
 
 const Section = styled.div`
  width: 100%;
  height: 100vh;
  position: relative;
- overflow: hidden;
  `;
 
 const Container = styled.div`
@@ -17,9 +17,12 @@ const Container = styled.div`
   top: ${({ isFixed, heroHeight }) => isFixed ? `${-heroHeight}px` : "0"};
   z-index: 1000;
   background: ${({ theme }) => theme.c.bg2}; 
+  overflow: hidden;
   `
 
 const Containerin = styled.div`
+  position: absolute;
+  top: 0;
   width: 100%;
   max-width: 1120px;
   margin: 0 auto;
@@ -111,6 +114,8 @@ class Main extends React.Component {
     }
   }
 
+
+
   componentDidMount() {
     const sectionHeight = document.querySelector("#main").offsetHeight
     const navbarHeight = document.querySelector("#navigation").offsetHeight;
@@ -118,10 +123,13 @@ class Main extends React.Component {
     this.initSmoothScroll(navbarHeight)
     document.addEventListener("scroll", throttle(this.fixNavbar, 10))
     this.setState({
+      sectionWidth: window.innerWidth,
+      sectionHeight: sectionHeight,
       isFixed: this.checkIfShouldBeFixed(),
       navbarHeight: navbarHeight,
       heroHeight: this.heroHeight
     })
+
   }
 
   render() {
@@ -132,6 +140,7 @@ class Main extends React.Component {
           isFixed={this.state.isFixed}
           heroHeight={this.state.heroHeight}
         >
+          <Particles />
           <Containerin>
             <Wrapper>
               <InnerWrapper>

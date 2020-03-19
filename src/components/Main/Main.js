@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
-import Navigation from "./Navigation"
+import Navigation from "./Navigation/Navigation"
 import throttle from "lodash/throttle"
-import Particles from './Particles'
+import Particles from './Particles/Particles'
 
 const Section = styled.div`
  width: 100%;

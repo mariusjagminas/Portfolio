@@ -8,7 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: ${({ theme }) => theme.f.rem(40)} 0;
+  padding: ${({ theme }) => theme.padding.mobile1} 0;
 
   ${({ theme }) => theme.mq.tablet} {
     flex-direction: row;
@@ -19,7 +19,8 @@ const Container = styled.div`
   }
 
   ${({ theme }) => theme.mq.laptop}{
-    padding: ${({ theme }) => theme.f.rem(60)} 0;
+    padding: ${({ theme }) => theme.padding.laptop1} 0;
+    padding-top: ${({ theme }) => theme.f.rem(50)};
   }
 `;
 

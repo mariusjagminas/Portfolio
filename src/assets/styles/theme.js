@@ -1,3 +1,13 @@
+const rem = (px) => {
+  const rem = px / 16;
+  return `${rem}rem`
+}
+
+const em = (px) => {
+  const em = px / 16;
+  return `${em}em`
+}
+
 const theme = {
   c: {
     bg: "#16222a",
@@ -15,16 +25,14 @@ const theme = {
     desktop: "@media(min-width: 1255px)",
   },
   f: {
-    rem: (px) => {
-      const rem = px / 16;
-      return `${rem}rem`
-    },
-    em: (px) => {
-      const em = px / 16;
-      return `${em}em`
-    }
+    rem: rem,
+    em: em
   },
   fontFamily2: "'Cabin', sans-serif",
+  padding: {
+    mobile1: rem(40),
+    laptop1: rem(100),
+  },
   dark: "#16222a",
   dark1: "#283d4b", // Background color
   dark3: "#2e3141",

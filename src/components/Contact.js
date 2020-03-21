@@ -46,7 +46,7 @@ const Link = styled.a`
 `
 
 const Span = styled.span`
-  font-size: ${({ theme }) => theme.f.rem(18)};
+  font-size: ${({ theme }) => theme.f.em(8)};
   padding-left: 0.6em;
 `
 

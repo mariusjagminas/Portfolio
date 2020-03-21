@@ -101,6 +101,11 @@ const Card = styled.div`
   position: relative;
   margin-bottom: ${({ theme }) => theme.f.em(60)};
   
+  &:last-child{
+    margin-bottom: ${({ theme }) => theme.f.em(25)};
+  }
+     
+  
   ${({ theme }) => theme.mq.tablet}{
     margin: ${({ theme }) => theme.f.em(20)};
     

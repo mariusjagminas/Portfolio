@@ -6,10 +6,10 @@ import { icons } from "../assets/aboutSectionIcons"
 const Section = styled.section`
   width: 100%;
   background-color: ${({ theme }) => theme.rgba1};
-  padding: ${({ theme }) => theme.spacing[2]} 0;
+  padding: ${({ theme }) => theme.padding.mobile1} 0;
   /* Media queries */
-  ${({ theme }) => theme.mq.laptop} {
-    padding: ${({ theme }) => theme.spacing[1]} 0;
+  ${({ theme }) => theme.mq.laptop}{
+    padding: ${({ theme }) => theme.padding.laptop1} 0;
   }
 `
 
@@ -33,25 +33,19 @@ const H3 = styled.h3`
   font-weight: 400;
   text-align: center;
   padding: 0 10px;
+  padding-bottom: ${({ theme }) => theme.padding.mobile1};
+
   margin: 0;
 
   ${({ theme }) => theme.mq.laptop}{
   font-size: ${({ theme }) => theme.f.rem(25)};
+  padding-bottom: ${({ theme }) => theme.padding.laptop1};
   }
 `
 
-const Text = styled.p`
-  display: block;
-  margin: ${({ theme }) => theme.spacing[3]} 0;
-  padding: 0;
-  text-align: center;
-  color: ${({ theme }) => theme.rgba4};
-  font-size: 20px;
-`
-
 const Ul = styled.ul`
-  margin: 0;
-  padding: 0;
+  margin: -1.6em 0;
+  padding:  0;
   list-style: none;
   width: 100%;
   max-width: 92em;
@@ -88,7 +82,6 @@ const About = () => (
     <MainWrapper>
       <H3>
         Self-taught  front-end  JavaScript developer. I enjoy exploring new technologies, and implementing them in my projects</H3>
-      <Text></Text>
       <Ul>
         {icons.map(({ icon, name }) => (
           <Li key={name}>

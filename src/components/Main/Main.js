@@ -60,6 +60,7 @@ const Info = styled.p`
   padding: 0 ${({ theme }) => theme.f.em(10)};
   margin: 0;
   color: ${({ theme }) => theme.c.text};
+  font-family: ${({ theme }) => theme.fontFamily2}; 
   font-size: ${({ theme }) => theme.f.em(40)};
 
   ${({ theme }) => theme.mq.tablet} {

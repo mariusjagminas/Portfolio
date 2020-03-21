@@ -27,12 +27,17 @@ const MainWrapper = styled.div`
 `
 
 const H3 = styled.h3`
-  color: ${({ theme }) => theme.rgba4};
-  font-size: 20px;
+  font-family: ${({ theme }) => theme.fontFamily2}; 
+  font-size: ${({ theme }) => theme.f.rem(18)};
+  color: ${({ theme }) => theme.c.navItem};
   font-weight: 400;
   text-align: center;
   padding: 0 10px;
   margin: 0;
+
+  ${({ theme }) => theme.mq.laptop}{
+  font-size: ${({ theme }) => theme.f.rem(25)};
+  }
 `
 
 const Text = styled.p`

@@ -30,9 +30,10 @@ const Li = styled.li`
 `
 
 const Link = styled.a`
+  font-family: ${({ theme }) => theme.fontFamily2}; 
+  font-size: 3em;
   text-decoration: none;
   color: ${({ theme }) => theme.rgba4};
-  font-size: 3em;
   background-color: ${({ theme }) => theme.dark1};
   padding: 0.4em;
   border-radius: 5px;
@@ -45,7 +46,7 @@ const Link = styled.a`
 `
 
 const Span = styled.span`
-  font-size: 0.52em;
+  font-size: ${({ theme }) => theme.f.rem(18)};
   padding-left: 0.6em;
 `
 

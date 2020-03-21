@@ -81,9 +81,11 @@ const ContentWrapper = styled.div`
 `;
 
 const Content = styled.p`
+  font-family: ${({ theme }) => theme.fontFamily2}; 
+  font-size: ${({ theme }) => theme.f.rem(18)};
+  text-align: center;
   color: ${({ theme }) => theme.c.navItem};
   padding: ${({ theme }) => theme.f.em(10)};
-  text-align: center;
 `;
 
 const BtnWrapper = styled.div`

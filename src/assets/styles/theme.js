@@ -24,6 +24,7 @@ const theme = {
       return `${em}em`
     }
   },
+  fontFamily2: "'Cabin', sans-serif",
   dark: "#16222a",
   dark1: "#283d4b", // Background color
   dark3: "#2e3141",

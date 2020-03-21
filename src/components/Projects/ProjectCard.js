@@ -96,7 +96,7 @@ const BtnWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  font-size: 0.92rem;
+  font-size: 4.55vw;
   width: ${({ theme }) => theme.f.em(340)};
   position: relative;
   margin-bottom: ${({ theme }) => theme.f.em(60)};
@@ -107,6 +107,7 @@ const Card = styled.div`
      
   
   ${({ theme }) => theme.mq.tablet}{
+    font-size: 0.92rem;
     margin: ${({ theme }) => theme.f.em(20)};
     
     &:hover {

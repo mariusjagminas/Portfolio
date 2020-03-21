@@ -8,26 +8,11 @@ const projectsData = [
       "JAMstack",
       "Gatsby.js",
       "Contentful",
-      "Netlify",
+      "i18n",
     ],
-    text: "JAMstack multi-language website, built with Gatsby.js, Contentful Deployed on Netlify.",
+    text: "A multi-lingual website promoting contemporary French and Polish literature.",
     siteUrl: "https://pawel-hladki.com/",
     ghUrl: "https://github.com/mariusjagminas/Contemporary-literature",
-  },
-  {
-    title: 'Latest',
-    title2: "News",
-    titleBg: '#8D4E21',
-    image: "news-app.jpg",
-    items: [
-      "Gatsby",
-      "Contenful",
-      "Netlify",
-      "React | Redux"
-    ],
-    text: "A classic Tetris game built with React.",
-    siteUrl: "https://mariusjagminas.github.io/tetris/",
-    ghUrl: "https://github.com/mariusjagminas/tetris",
   },
   {
     title: 'Youtube',
@@ -35,29 +20,29 @@ const projectsData = [
     titleBg: '#CE0A09',
     image: "youtube-clone.jpg",
     items: [
-      "Gatsby",
-      "Contenful",
-      "Netlify",
-      "styled"
+      "React",
+      "Jest | Enzyme",
+      "Material-UI",
+      "YouTube API"
     ],
-    text: "A classic Tetris game built with React.",
-    siteUrl: "https://mariusjagminas.github.io/tetris/",
-    ghUrl: "https://github.com/mariusjagminas/tetris",
+    text: "A lightweight clone of YouTube, built with Material-UI components.",
+    siteUrl: "https://youtubeclone.mjagminas.com/",
+    ghUrl: "https://github.com/mariusjagminas/Youtube-videos",
   },
   {
-    title: 'Vintage',
-    title2: "Tetris",
-    titleBg: '#BB2688',
-    image: "tetris.jpg",
+    title: 'Latest',
+    title2: "News",
+    titleBg: '#8D4E21',
+    image: "news-app.jpg",
     items: [
-      "Gatsby",
-      "Contenful",
-      "Netlify",
-      "styled"
+      "Angular",
+      "Bootstrap",
+      "SASS",
+      "Currents API"
     ],
-    text: "A classic Tetris game built with React.",
-    siteUrl: "https://mariusjagminas.github.io/tetris/",
-    ghUrl: "https://github.com/mariusjagminas/tetris",
+    text: "The latest news from over 15 000 different sources in one place.",
+    siteUrl: "https://news.mjagminas.com/",
+    ghUrl: "https://github.com/mariusjagminas/news-app",
   },
   {
     title: 'Daylight',
@@ -65,13 +50,28 @@ const projectsData = [
     titleBg: '#ED802D',
     image: "daylight-app.jpg",
     items: [
-      "Gatsby",
-      "Contenful",
-      "Netlify",
-      "styled"
+      "ES6",
+      "Webpack",
+      "Jest",
+      "Bulma"
     ],
-    text: "A classic Tetris game built with React.",
-    siteUrl: "https://mariusjagminas.github.io/tetris/",
+    text: "The application shows the current sunrise and sunset times of the selected location.",
+    siteUrl: "https://daylight.mjagminas.com/",
+    ghUrl: "https://github.com/mariusjagminas/Daylight",
+  },
+  {
+    title: 'Vintage',
+    title2: "Tetris",
+    titleBg: '#BB2688',
+    image: "tetris.jpg",
+    items: [
+      "React",
+      "ES6",
+      "BEM",
+      "Netlify"
+    ],
+    text: "A variant of the classic Tetris built with React.",
+    siteUrl: "https://tetris.mjagminas.com/",
     ghUrl: "https://github.com/mariusjagminas/tetris",
   },
   {
@@ -80,62 +80,16 @@ const projectsData = [
     titleBg: '#4784BA',
     image: "snieszka.jpg",
     items: [
-      "Gatsby",
-      "Contenful",
-      "Netlify",
-      "styled"
+      "Weather API",
+      "Google Maps",
+      "SASS",
+      "HTML5"
     ],
-    text: "A classic Tetris game built with React.",
-    siteUrl: "https://mariusjagminas.github.io/tetris/",
-    ghUrl: "https://github.com/mariusjagminas/tetris",
+    text: "The website with a gallery of beautiful sceneries of Snieska mountain, current weather information, and the location of the mountain.",
+    siteUrl: "https://sniezka.mjagminas.com/",
+    ghUrl: "https://github.com/mariusjagminas/Sniezka",
   },
 
 ]
 
 export default projectsData;
-
-// Images size is 400 x 250 px.
-// export const projects = [
-//   {
-//     title: "Contemporary literature",
-//     description:
-//       "",
-//     imageName: "Contemporary-literature.jpg",
-//   },
-//   {
-//     title: "Tetris",
-//     description: "",
-//     imageName: "tetris.jpg",
-//   },
-//   {
-//     title: "JavaScript30",
-//     description: "A set of a 30 mini projects, built with plain JavaScript.",
-//     imageName: "java-script-30.jpg",
-//     siteUrl: "https://mariusjagminas.github.io/JavaScript30/",
-//     ghUrl: "https://github.com/mariusjagminas/JavaScript30",
-//   },
-//   {
-//     title: "Sniezka",
-//     description:
-//       "A landing page for Sniezka mountain. The website has a current weather page, also it uses a Google Maps API.",
-//     imageName: "sniezka.jpg",
-//     siteUrl: "https://mariusjagminas.github.io/Sniezka/",
-//     ghUrl: "https://github.com/mariusjagminas/Sniezka",
-//   },
-//   {
-//     title: "Top Designs",
-//     description:
-//       '"Pixel perfect" PSD to HTML exercise.Landing page for a fictional company.',
-//     imageName: "top-designs.jpg",
-//     siteUrl: "https://mariusjagminas.github.io/TopDesigns/",
-//     ghUrl: "https://github.com/mariusjagminas/TopDesigns",
-//   },
-//   {
-//     title: "TreeHouse",
-//     description:
-//       '"Pixel perfect" PSD to HTML exercise.Landing page for a fictional company.',
-//     imageName: "treehouse.jpg",
-//     siteUrl: "https://mariusjagminas.github.io/TreeHouse/",
-//     ghUrl: "https://github.com/mariusjagminas/TreeHouse",
-//   },
-// ]

@@ -98,7 +98,7 @@ const Navigation = ({ navbarHeight }) => {
       >
         {links.map(link => {
           return (
-            <Item>
+            <Item key={link.name}>
               <Link href={link.path}>
                 <Wrapper className="active__item">
                   {link.icon}

@@ -81,9 +81,11 @@ const ContentWrapper = styled.div`
 `;
 
 const Content = styled.p`
+  font-family: ${({ theme }) => theme.fontFamily2}; 
+  font-size: ${({ theme }) => theme.f.rem(18)};
+  text-align: center;
   color: ${({ theme }) => theme.c.navItem};
   padding: ${({ theme }) => theme.f.em(10)};
-  text-align: center;
 `;
 
 const BtnWrapper = styled.div`
@@ -94,12 +96,18 @@ const BtnWrapper = styled.div`
 `;
 
 const Card = styled.div`
-  font-size: 0.92rem;
+  font-size: 4.55vw;
   width: ${({ theme }) => theme.f.em(340)};
   position: relative;
   margin-bottom: ${({ theme }) => theme.f.em(60)};
   
+  &:last-child{
+    margin-bottom: ${({ theme }) => theme.f.em(25)};
+  }
+     
+  
   ${({ theme }) => theme.mq.tablet}{
+    font-size: 0.92rem;
     margin: ${({ theme }) => theme.f.em(20)};
     
     &:hover {

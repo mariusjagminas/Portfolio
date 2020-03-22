@@ -3,6 +3,7 @@ import styled from "styled-components"
 import "./navigation.css"
 import Scrollspy from "react-scrollspy"
 import links from './navData';
+import PropTypes from 'prop-types'
 
 const Nav = styled.nav`
   background-color: ${({ theme }) => theme.c.bg} ;
@@ -50,7 +51,7 @@ const Link = styled.a`
 `
 
 const Wrapper = styled.div`
-  color: ${({ theme }) => theme.rgba3};
+  color: ${({ theme }) => theme.c.navItem};
   position: absolute;
   top: 0;
   bottom: 0;
@@ -98,7 +99,7 @@ const Navigation = ({ navbarHeight }) => {
       >
         {links.map(link => {
           return (
-            <Item>
+            <Item key={link.name}>
               <Link href={link.path}>
                 <Wrapper className="active__item">
                   {link.icon}
@@ -114,3 +115,7 @@ const Navigation = ({ navbarHeight }) => {
 }
 
 export default Navigation
+
+Navigation.propTypes = {
+  navbarHeight: PropTypes.number.isRequired
+}

@@ -60,6 +60,7 @@ const Info = styled.p`
   padding: 0 ${({ theme }) => theme.f.em(10)};
   margin: 0;
   color: ${({ theme }) => theme.c.text};
+  font-family: ${({ theme }) => theme.fontFamily2}; 
   font-size: ${({ theme }) => theme.f.em(40)};
 
   ${({ theme }) => theme.mq.tablet} {
@@ -89,13 +90,12 @@ class Main extends React.Component {
   }
 
   initSmoothScroll = (navHeight) => {
-    if (typeof window !== `undefined`) {
-      const SmoothScroll = require("smooth-scroll")
-      new SmoothScroll('a[href*="#"]', {
-        offset: navHeight - 1,
-        speed: window.innerWidth > 600 ? 300 : 40,
-      })
-    }
+    if (typeof window == `undefined`) return
+    const SmoothScroll = require("smooth-scroll")
+    new SmoothScroll('a[href*="#"]', {
+      offset: navHeight - 1,
+      speed: window.innerWidth > 600 ? 300 : 10,
+    })
   }
 
   setNewValues = () => {

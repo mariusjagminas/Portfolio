@@ -2,24 +2,22 @@ import React from "react"
 import styled from "styled-components"
 import { FaEnvelope, FaGithub, FaLinkedin } from "react-icons/fa"
 import Footer from "./Footer"
-import debounce from "lodash/debounce"
 
 const Section = styled.section`
-  opacity: ${isVisible => (isVisible ? 1 : 0)};
   width: 100%;
   min-height: ${({ sectionHeight }) => sectionHeight};
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: opacity 0.3s ease, height 0.2s ease-out;
 `
 
 const Ul = styled.ul`
   list-style: none;
   margin: 0;
   padding: 0;
-  font-size: 9px; /* for sizing */
-  /* Media queries */
+  font-size: 9px; 
+
   ${({ theme }) => theme.mq.tablet} {
     font-size: 12px;
   }
@@ -30,22 +28,24 @@ const Li = styled.li`
 `
 
 const Link = styled.a`
-  text-decoration: none;
-  color: ${({ theme }) => theme.rgba4};
+  font-family: ${({ theme }) => theme.fontFamily2}; 
   font-size: 3em;
-  background-color: ${({ theme }) => theme.dark1};
+  text-decoration: none;
+  color: ${({ theme }) => theme.c.navItem};
+  background-color: ${({ theme }) => theme.c.card};
   padding: 0.4em;
   border-radius: 5px;
   display: flex;
   align-items: center;
+  transition: opacity 0.2s ease;
+
   &:hover {
     opacity: 0.6;
   }
-  transition: opacity 0.3s ease;
 `
 
 const Span = styled.span`
-  font-size: 0.52em;
+  font-size: ${({ theme }) => theme.f.em(8)};
   padding-left: 0.6em;
 `
 
@@ -54,27 +54,15 @@ class Contact extends React.Component {
     super()
     this.state = {
       sectionHeight: "100vh",
-      isVisible: false,
     }
-    this.navbarHeight = 0
-  }
-
-  setSectionHeight = () => {
-    const sectionHeight = `${window.innerHeight - this.navbarHeight - 80}px`
-    this.setState({
-      sectionHeight: sectionHeight,
-      isVisible: false,
-    })
   }
 
   componentDidMount() {
-    this.navbarHeight = document.querySelector("#navigation").offsetHeight
-    this.setSectionHeight()
-    window.addEventListener("resize", debounce(this.setSectionHeight, 150))
-  }
+    const navbarHeight = document.querySelector("#navigation").offsetHeight
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", debounce())
+    this.setState({
+      sectionHeight: `${window.innerHeight - navbarHeight - 80}px`,
+    })
   }
 
   render() {
@@ -83,7 +71,6 @@ class Contact extends React.Component {
         <Section
           id="contact"
           sectionHeight={this.state.sectionHeight}
-          isVisible={this.state.isVisible}
         >
           <Ul>
             <Li>

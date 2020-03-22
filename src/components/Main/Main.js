@@ -90,13 +90,12 @@ class Main extends React.Component {
   }
 
   initSmoothScroll = (navHeight) => {
-    if (typeof window !== `undefined`) {
-      const SmoothScroll = require("smooth-scroll")
-      new SmoothScroll('a[href*="#"]', {
-        offset: navHeight - 1,
-        speed: window.innerWidth > 600 ? 300 : 40,
-      })
-    }
+    if (typeof window == `undefined`) return
+    const SmoothScroll = require("smooth-scroll")
+    new SmoothScroll('a[href*="#"]', {
+      offset: navHeight - 1,
+      speed: window.innerWidth > 600 ? 300 : 10,
+    })
   }
 
   setNewValues = () => {

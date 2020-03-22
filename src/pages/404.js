@@ -2,60 +2,48 @@ import React from "react"
 import Layout from "../components/Layout"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import Background from "gatsby-background-image"
+import GatsbyBackground from "gatsby-background-image"
 import { Link } from "gatsby"
 
-const BackgroundImage = styled(Background)`
+const Background = styled(GatsbyBackground)`
   width: 100%;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-`
+  font-size: 5vw;
 
-const Card = styled.div`
-  font-size: 15px;
-  width: 100%;
-  max-width: 35em;
-  background-color: ${({ theme }) => theme.dark1};
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* Media queries */
-  ${({ theme }) => theme.mq.laptop} {
-    font-size: 20px;
+  ${({ theme }) => theme.mq.tablet}{
+    font-size: ${({ theme }) => theme.f.rem(30)}; 
   }
 `
 
-const H1 = styled.h1`
-  font-size: 4em;
-  color: ${({ theme }) => theme.white};
-  text-align: center;
+const Text = styled.h1`
+  font-size: ${({ theme }) => theme.f.em(40)};
+  color: ${({ theme }) => theme.c.text};
+  margin: 0;
 `
 
 const StyledLink = styled(Link)`
-  color: ${({ theme }) => theme.color};
-  text-decoration: none;
-  font-size: 1em;
+  font-size: ${({ theme }) => theme.f.em(15)};
   font-weight: 800;
+  text-decoration: none;
+  color: ${({ theme }) => theme.c.active};
   border: 2px solid;
-  border-color: ${({ theme }) => theme.color};
+  border-color: ${({ theme }) => theme.c.active};
   border-radius: 5px;
-  padding: 0.5em 0.7em;
-  margin-bottom: 4em;
-  /* Media queries */
+  padding: ${({ theme }) => theme.f.em(10)};
+  margin-top: ${({ theme }) => theme.f.em(15)};
+  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
+
   ${({ theme }) => theme.mq.laptop} {
+
     &:hover {
-      border-color: ${({ theme }) => theme.white};
-      color: ${({ theme }) => theme.white};
+      border-color: ${({ theme }) => theme.c.active};
+      color: ${({ theme }) => theme.c.active};
     }
   }
-  transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
-`
-
-const Span = styled.span`
-  padding-left: 0.3em;
 `
 
 const NotFoundPage = () => {
@@ -66,21 +54,16 @@ const NotFoundPage = () => {
   } = useStaticQuery(query)
   return (
     <Layout>
-      <BackgroundImage
-        id="main"
+      <Background
         Tag="section"
         fluid={[
-          `linear-gradient(rgba(22, 34, 42,0.8),rgba(22, 34, 42,0.8))`,
+          `linear-gradient(rgba(22, 34, 42,0.9),rgba(22, 34, 42,0.9))`,
           fluid,
         ]}
       >
-        <Card>
-          <H1>404 not found</H1>
-          <StyledLink to={"/"}>
-            <Span>Go to Home page</Span>
-          </StyledLink>
-        </Card>
-      </BackgroundImage>
+        <Text>404 not found</Text>
+        <StyledLink to={"/"}>Go back to Home page</StyledLink>
+      </Background>
     </Layout>
   )
 }

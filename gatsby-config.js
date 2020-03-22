@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `Marius Jagminas`,
-    description: `Front-end JavaScript developer`,
+    title: `MJ`,
+    description: `JavaScript developer`,
     author: `Marius Jagminas`,
-    siteUrl: "http://mjagminas.com",
+    siteUrl: "https://mjagminas.com",
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,13 +22,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Marius Jagminas`,
-        short_name: `MJ WebDev`,
+        name: `MJ`,
+        short_name: `MJ`,
         start_url: `/`,
         background_color: `#16222a`,
         theme_color: `#16222a`,
         display: `minimal-ui`,
-        icon: `src/assets/images/favicon.jpg`, // This path is relative to the root of the site.
+        icon: `src/assets/images/favicon.png`, // This path is relative to the root of the site.
       },
     },
     {

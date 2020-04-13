@@ -1,5 +1,37 @@
 const projectsData = [
   {
+    title: 'React',
+    title2: "Component",
+    titleBg: '#3493AD',
+    image: "react.jpg",
+    items: [
+      "React",
+      "ES6 modules",
+      "NPM",
+      "NWB",
+    ],
+    text: "React component for handling screen orientation changes on mobile devices",
+    siteUrl: "https://www.npmjs.com/package/screen-orientation-react",
+    ghUrl: "https://github.com/mariusjagminas/screen-orientation-react",
+    isNpm: true
+  },
+  {
+    title: 'Screen',
+    title2: "Orientation",
+    titleBg: '#BE2B2A',
+    image: "npm.jpg",
+    items: [
+      "UMD",
+      "CommonJS",
+      "NPM",
+      "Webpack",
+    ],
+    text: "NPM package for handling screen orientation changes on mobile devices",
+    siteUrl: "https://www.npmjs.com/package/screen-orientation-js",
+    ghUrl: "https://github.com/mariusjagminas/screen-orientation-js",
+    isNpm: true
+  },
+  {
     title: 'Contemporary',
     title2: "Literature",
     titleBg: '#467D8A',
@@ -28,21 +60,6 @@ const projectsData = [
     text: "A lightweight clone of YouTube, built with Material-UI components.",
     siteUrl: "https://youtubeclone.mjagminas.com/",
     ghUrl: "https://github.com/mariusjagminas/Youtube-videos",
-  },
-  {
-    title: 'Latest',
-    title2: "News",
-    titleBg: '#8D4E21',
-    image: "news-app.jpg",
-    items: [
-      "Angular",
-      "Bootstrap",
-      "SASS",
-      "Currents API"
-    ],
-    text: "The latest news from over 15 000 different sources in one place.",
-    siteUrl: "https://news.mjagminas.com/",
-    ghUrl: "https://github.com/mariusjagminas/news-app",
   },
   {
     title: 'Daylight',
@@ -74,22 +91,38 @@ const projectsData = [
     siteUrl: "https://tetris.mjagminas.com/",
     ghUrl: "https://github.com/mariusjagminas/tetris",
   },
-  {
-    title: 'Snieska',
-    title2: "in winter",
-    titleBg: '#4784BA',
-    image: "snieszka.jpg",
-    items: [
-      "Weather API",
-      "Google Maps",
-      "SASS",
-      "HTML5"
-    ],
-    text: "The website with a gallery of beautiful sceneries of Snieska mountain, current weather information, and the location of the mountain.",
-    siteUrl: "https://sniezka.mjagminas.com/",
-    ghUrl: "https://github.com/mariusjagminas/Sniezka",
-  },
-
 ]
 
 export default projectsData;
+
+  // {
+  //   title: 'Latest',
+  //   title2: "News",
+  //   titleBg: '#8D4E21',
+  //   image: "news-app.jpg",
+  //   items: [
+  //     "Angular",
+  //     "Bootstrap",
+  //     "SASS",
+  //     "Currents API"
+  //   ],
+  //   text: "The latest news from over 15 000 different sources in one place.",
+  //   siteUrl: "https://news.mjagminas.com/",
+  //   ghUrl: "https://github.com/mariusjagminas/news-app",
+  // },
+
+  // {
+  //   title: 'Snieska',
+  //   title2: "in winter",
+  //   titleBg: '#4784BA',
+  //   image: "snieszka.jpg",
+  //   items: [
+  //     "Weather API",
+  //     "Google Maps",
+  //     "SASS",
+  //     "HTML5"
+  //   ],
+  //   text: "The website with a gallery of beautiful sceneries of Snieska mountain, current weather information, and the location of the mountain.",
+  //   siteUrl: "https://sniezka.mjagminas.com/",
+  //   ghUrl: "https://github.com/mariusjagminas/Sniezka",
+  // },

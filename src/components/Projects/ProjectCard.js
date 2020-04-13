@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import styled, { css } from "styled-components"
 import Img from '../Img'
-import { FaEye, FaGithub } from "react-icons/fa"
+import { FaEye, FaGithub, FaCubes } from "react-icons/fa"
 import Button from './Button'
 
 const sharedStyles = css`
@@ -138,7 +138,8 @@ const ProjectCard = ({
     items,
     text,
     ghUrl,
-    siteUrl
+    siteUrl,
+    isNpm = false
   }
 }) => {
   return (
@@ -157,7 +158,11 @@ const ProjectCard = ({
         </ContentWrapper>
         <BtnWrapper>
           <Button text="Github" icon={<FaGithub />} href={ghUrl} />
-          <Button text="Live" icon={<FaEye />} href={siteUrl} />
+          {isNpm ?
+            <Button text="NPM" icon={<FaCubes />} href={siteUrl} />
+            :
+            <Button text="Live" icon={<FaEye />} href={siteUrl} />
+          }
         </BtnWrapper>
       </BackFace>
     </Card>
@@ -176,5 +181,6 @@ ProjectCard.propTypes = {
     text: PropTypes.string.isRequired,
     ghUrl: PropTypes.string.isRequired,
     siteUrl: PropTypes.string.isRequired,
+    isNpm: PropTypes.bool
   })
 }

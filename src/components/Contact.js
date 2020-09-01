@@ -142,6 +142,7 @@ class Contact extends React.Component {
             method="POST"
             netlify-honeypot="bot-field"
             data-netlify="true"
+            action="/success"
           >
             <input type="hidden" name="bot-field" />
             {/* Must inlude form-name input to let Netlify handle a form sumbision properly  */}
